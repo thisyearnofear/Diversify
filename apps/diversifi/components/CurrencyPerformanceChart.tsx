@@ -1,14 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import type { Region } from "../hooks/use-user-region";
+/**
+ * @deprecated Use CurrencyPerformanceChart from @stable-station/shared instead
+ * This file is kept for backward compatibility during migration
+ */
 
-// Region colors for visualization - brighter, more vibrant colors
-const REGION_COLORS: Record<Region, string> = {
-  USA: "#4299E1", // blue
-  Europe: "#48BB78", // green
-  LatAm: "#F6AD55", // orange
-  Africa: "#F56565", // red
-  Asia: "#9F7AEA", // purple
-};
+export { CurrencyPerformanceChart as default } from "@stable-station/shared";
 
 interface CurrencyPerformanceChartProps {
   data: {

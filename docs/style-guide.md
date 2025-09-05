@@ -1,173 +1,578 @@
-# Stable Station Style Guide
+# Style Guide and Coding Standards
 
-This document outlines the styling approach and patterns used in the Stable Station application.
+This document outlines the coding standards and style guidelines for Stable Station.
 
 ## Core Principles
 
-1. **Consistency**: Use the centralized theme and style utilities for consistent styling across components
-2. **Maintainability**: Keep styling logic separate from component logic where possible
-3. **Responsiveness**: Use Tailwind's responsive prefixes and the useIsMobile hook for responsive design
-4. **Performance**: Minimize style recalculations and reflows by using consistent patterns
+### 1. Enhancement First
+Consolidate existing components rather than creating new ones to prevent code duplication.
 
-## Styling Architecture
+### 2. Aggressive Consolidation
+Delete unnecessary duplicate code to maintain a clean codebase.
 
-### 1. Theme Configuration
+### 3. Prevent Bloat
+Systematically audit before adding new features to avoid unnecessary complexity.
 
-All design tokens and color schemes are defined in `lib/styles/theme.ts`:
+### 4. DRY (Don't Repeat Yourself)
+Maintain a single source of truth for all shared logic and constants.
 
-- Region colors (USA, Europe, Africa, LatAm, Asia, RWA)
-- Chain colors (BASE, OPTIMISM, CELO, POLYGON)
-- Component styles (cards, sidebars, buttons)
-- Layout constants (sidebar widths, breakpoints)
+### 5. Clean Code
+Ensure clear separation of concerns with explicit dependencies and well-organized structure.
 
-### 2. Style Utilities
+### 6. Modular Design
+Create composable, testable, and independent modules.
 
-Style utility functions in `lib/styles/style-utils.ts` provide consistent styling:
+### 7. Performance Optimization
+Optimize loading, caching, and resource management for better user experience.
 
-- `getRegionStyle()` - Get region-specific styling
-- `getChainStyle()` - Get chain-specific styling
-- `getSidebarMenuButtonStyle()` - Get sidebar menu button styling
-- `getCardStyle()` - Get card styling with appropriate gradient
-- `getAnimationStyle()` - Get animation styling with optional delay
+### 8. Organized Structure
+Follow predictable structure with domain-driven design principles.
 
-Mobile-specific styling utilities are available in `lib/styles/mobile.ts` and `lib/styles/layout.ts`:
+## TypeScript Standards
 
-- `getMobileHeaderContainer()` - Get mobile header container styling
-- `getMobileNavContainer()` - Get mobile navigation container styling
-- `getMainLayoutGrid()` - Get main layout grid styling
-- `getMainContentContainer()` - Get main content container styling
-- `getMainContent()` - Get main content area styling
+### Type Safety
 
-### 3. Class Composition
+1. Use TypeScript for all new code
+2. Enable strict type checking in `tsconfig.json`
+3. Avoid using `any` type unless absolutely necessary
+4. Prefer interfaces over types for object shapes
 
-Use the `cn()` utility from `lib/utils.ts` to compose class names conditionally:
+```typescript
+// Good
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
 
-```tsx
-import { cn } from "@/lib/utils";
-
-<div
-  className={cn(
-    "base-class",
-    condition && "conditional-class",
-    anotherCondition ? "true-class" : "false-class"
-  )}
-/>;
+// Avoid
+type User = {
+  id: string;
+  name: string;
+  email: string;
+};
 ```
 
-## Component Styling Patterns
+### Naming Conventions
 
-### UI Components
+1. Use PascalCase for interfaces and type aliases
+2. Use camelCase for variables, functions, and methods
+3. Use UPPER_SNAKE_CASE for constants
 
-UI components should use the class variance authority (cva) pattern:
+```typescript
+// Interfaces
+interface UserProfile {
+  userId: string;
+  displayName: string;
+}
 
-```tsx
-const buttonVariants = cva("base-classes-here", {
-  variants: {
-    variant: {
-      default: "default-variant-classes",
-      secondary: "secondary-variant-classes",
+// Constants
+const MAX_RETRY_ATTEMPTS = 3;
+const API_BASE_URL = 'https://api.example.com';
+
+// Variables and functions
+const userProfiles = getUserProfiles();
+function calculateTotalBalance(accounts: Account[]): number {
+  // Implementation
+}
+```
+
+### Function Design
+
+1. Keep functions small and focused on a single responsibility
+2. Use descriptive function names
+3. Prefer pure functions when possible
+4. Use default parameters instead of conditionals
+
+```typescript
+// Good
+function calculateSwapAmount(
+  inputAmount: number,
+  exchangeRate: number,
+  feePercentage = 0.0025
+): number {
+  const feeAmount = inputAmount * feePercentage;
+  return (inputAmount - feeAmount) * exchangeRate;
+}
+
+// Avoid
+function calculateSwapAmount(inputAmount: number, exchangeRate: number, feePercentage?: number): number {
+  const fee = feePercentage || 0.0025;
+  // Complex implementation with multiple responsibilities
+}
+```
+
+## React Standards
+
+### Component Structure
+
+1. Create small, focused components
+2. Use hooks to separate logic from UI
+3. Implement proper error handling
+4. Write clear prop interfaces
+
+```typescript
+// Good component structure
+interface SwapCardProps {
+  tokenFrom: Token;
+  tokenTo: Token;
+  onSwap: (amount: number) => void;
+}
+
+export function SwapCard({ tokenFrom, tokenTo, onSwap }: SwapCardProps) {
+  const [amount, setAmount] = useState('');
+  const [error, setError] = useState('');
+  
+  const handleSwap = () => {
+    const numericAmount = parseFloat(amount);
+    if (isNaN(numericAmount) || numericAmount <= 0) {
+      setError('Please enter a valid amount');
+      return;
+    }
+    
+    try {
+      onSwap(numericAmount);
+      setError('');
+    } catch (err) {
+      setError('Failed to execute swap');
+    }
+  };
+  
+  return (
+    <div className="swap-card">
+      {/* Component UI */}
+    </div>
+  );
+}
+```
+
+### Hooks
+
+1. Custom hooks should start with "use"
+2. Hooks should have a single responsibility
+3. Return consistent data structures
+4. Handle loading and error states
+
+```typescript
+// Good custom hook
+function useTokenBalance(token: Token) {
+  const [balance, setBalance] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        setLoading(true);
+        const result = await getTokenBalance(token);
+        setBalance(result);
+        setError(null);
+      } catch (err) {
+        setError('Failed to fetch balance');
+        setBalance(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    if (token) {
+      fetchBalance();
+    }
+  }, [token]);
+  
+  return { balance, loading, error };
+}
+```
+
+### State Management
+
+1. Lift state up when needed by multiple components
+2. Use context for global state
+3. Prefer local state for component-specific data
+4. Use reducers for complex state logic
+
+```typescript
+// Good state management
+// For global state
+const UserContext = createContext<UserContextType | null>(null);
+
+// For complex local state
+interface SwapState {
+  step: 'input' | 'confirm' | 'executing' | 'completed';
+  amount: string;
+  estimatedOutput: number | null;
+}
+
+function swapReducer(state: SwapState, action: SwapAction): SwapState {
+  switch (action.type) {
+    case 'SET_AMOUNT':
+      return { ...state, amount: action.payload };
+    case 'SET_STEP':
+      return { ...state, step: action.payload };
+    // Other cases
+    default:
+      return state;
+  }
+}
+```
+
+## Styling Standards
+
+### Tailwind CSS
+
+1. Use Tailwind utility classes for styling
+2. Follow the centralized styling approach
+3. Use responsive prefixes for mobile-first design
+4. Create reusable utility functions for complex styling
+
+```typescript
+// Good styling approach
+import { cn } from '@/lib/utils';
+import { getRegionStyle } from '@/lib/styles/style-utils';
+
+export function TokenCard({ token, isSelected }: TokenCardProps) {
+  return (
+    <div 
+      className={cn(
+        'p-4 rounded-lg border cursor-pointer transition-colors',
+        isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200',
+        getRegionStyle(token.region, 'light', 'bg')
+      )}
+    >
+      {/* Card content */}
+    </div>
+  );
+}
+```
+
+### Style Utilities
+
+1. Create centralized style utilities for consistent styling
+2. Use theme-based styling for light/dark modes
+3. Implement region-specific styling through utility functions
+
+```typescript
+// Style utility example
+export function getRegionStyle(
+  region: string,
+  intensity: 'light' | 'medium' | 'dark',
+  type: 'bg' | 'text' | 'border'
+): string {
+  const styles: Record<string, Record<string, Record<string, string>>> = {
+    Africa: {
+      light: {
+        bg: 'bg-green-50',
+        text: 'text-green-700',
+        border: 'border-green-200'
+      },
+      // Other intensities
     },
-    size: {
-      default: "default-size-classes",
-      sm: "small-size-classes",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-    size: "default",
-  },
+    // Other regions
+  };
+  
+  return styles[region]?.[intensity]?.[type] || getDefaultStyle(type);
+}
+```
+
+## Testing Standards
+
+### Unit Testing
+
+1. Write tests for utility functions
+2. Test pure functions with various inputs
+3. Mock external dependencies
+4. Use descriptive test names
+
+```typescript
+// Good unit test
+describe('calculateSwapAmount', () => {
+  it('should calculate correct amount with default fee', () => {
+    const result = calculateSwapAmount(100, 0.95);
+    expect(result).toBeCloseTo(94.7625); // 100 * 0.95 * (1 - 0.0025)
+  });
+  
+  it('should calculate correct amount with custom fee', () => {
+    const result = calculateSwapAmount(100, 0.95, 0.01);
+    expect(result).toBeCloseTo(94.05); // 100 * 0.95 * (1 - 0.01)
+  });
 });
 ```
 
-### Layout Components
+### Component Testing
 
-Layout components should use CSS Grid and Flexbox with responsive prefixes:
+1. Test component rendering with different props
+2. Test user interactions
+3. Test error states
+4. Use React Testing Library for testing
 
-```tsx
-<div className="grid grid-cols-[auto,1fr,auto] md:grid-cols-[240px,1fr,240px]">
-  <Sidebar />
-  <main className="flex flex-col">{children}</main>
-  <RightSidebar />
-</div>
+```typescript
+// Good component test
+describe('SwapCard', () => {
+  it('should render token information correctly', () => {
+    render(
+      <SwapCard 
+        tokenFrom={mockTokenFrom} 
+        tokenTo={mockTokenTo} 
+        onSwap={vi.fn()} 
+      />
+    );
+    
+    expect(screen.getByText(mockTokenFrom.symbol)).toBeInTheDocument();
+    expect(screen.getByText(mockTokenTo.symbol)).toBeInTheDocument();
+  });
+  
+  it('should call onSwap when swap button is clicked', async () => {
+    const onSwap = vi.fn();
+    render(
+      <SwapCard 
+        tokenFrom={mockTokenFrom} 
+        tokenTo={mockTokenTo} 
+        onSwap={onSwap} 
+      />
+    );
+    
+    const input = screen.getByPlaceholderText('Enter amount');
+    await userEvent.type(input, '100');
+    
+    const swapButton = screen.getByText('Swap');
+    await userEvent.click(swapButton);
+    
+    expect(onSwap).toHaveBeenCalledWith(100);
+  });
+});
 ```
 
-### Mobile Components
+## Documentation Standards
 
-Mobile components should:
+### Code Comments
 
-1. Use the `useIsMobile()` hook for conditional rendering
-2. Use the mobile styling utilities from `lib/styles/mobile.ts` for consistent styling
-3. Return `null` when not on mobile
+1. Comment complex logic with explanations
+2. Document function parameters and return values
+3. Use JSDoc for public APIs
+4. Avoid redundant comments
 
-```tsx
-const isMobile = useIsMobile();
-if (!isMobile) return null;
-
-return (
-  <div
-    className={cn(
-      getMobileHeaderContainer(),
-      "flex items-center justify-between"
-    )}
-  >
-    {/* Mobile header content */}
-  </div>
-);
+```typescript
+/**
+ * Calculates the output amount for a token swap
+ * @param inputAmount - The amount of input tokens
+ * @param exchangeRate - The exchange rate between tokens
+ * @param feePercentage - The fee percentage (default: 0.0025)
+ * @returns The estimated output amount after fees
+ */
+function calculateSwapAmount(
+  inputAmount: number,
+  exchangeRate: number,
+  feePercentage = 0.0025
+): number {
+  // Implementation
+}
 ```
 
-## Color System
+### README Documentation
 
-### Region Colors
+1. Keep README files up to date
+2. Include setup instructions
+3. Document key features
+4. Provide examples for common use cases
 
-Use the `getRegionStyle()` utility to apply region-specific colors:
+## Git Workflow
 
-```tsx
-<div className={getRegionStyle("Europe", "medium", "bg")}>European content</div>
+### Commit Messages
+
+Follow conventional commit format:
+
+```
+type(scope): description
+
+body (optional)
+
+footer (optional)
 ```
 
-### Chain Colors
+Types:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes
+- `refactor`: Code refactoring
+- `test`: Test changes
+- `chore`: Maintenance tasks
 
-Use the `getChainStyle()` utility to apply chain-specific colors:
+Examples:
+```
+feat(wallet): add support for MiniPay auto-connection
 
-```tsx
-<div className={getChainStyle("OPTIMISM", "light", "bg")}>Optimism content</div>
+fix(swap): resolve issue with exchange rate calculation
+
+docs: update deployment documentation
+
+refactor(components): consolidate chart components
 ```
 
-## Responsive Design
+### Branch Naming
 
-### Breakpoints
+Use descriptive branch names:
 
-The application uses the following breakpoints:
-
-- Mobile: < 768px
-- Desktop: >= 768px
-
-### Responsive Patterns
-
-1. **Conditional Rendering**: Use the `useIsMobile()` hook
-2. **Responsive Classes**: Use Tailwind's responsive prefixes (md:, lg:)
-3. **Mobile-First**: Design for mobile first, then enhance for desktop
-
-## Dark Mode
-
-The application supports dark mode using CSS variables and Tailwind's dark mode:
-
-```tsx
-<div className="bg-white dark:bg-gray-900">Dark mode compatible content</div>
+```
+feature/user-authentication
+fix/wallet-connection-issue
+docs/api-integration-guide
+refactor/consolidate-wallet-hooks
 ```
 
-## Animation
+## Performance Standards
 
-Use the `getAnimationStyle()` utility for consistent animations:
+### Optimization Techniques
 
-```tsx
-<div className={getAnimationStyle(200)}>Animated content with 200ms delay</div>
+1. Implement lazy loading for components
+2. Use memoization for expensive calculations
+3. Optimize bundle size by code splitting
+4. Implement proper caching strategies
+
+```typescript
+// Good performance optimization
+import { memo, useMemo } from 'react';
+
+interface TokenListProps {
+  tokens: Token[];
+  searchTerm: string;
+}
+
+// Memoize component to prevent unnecessary re-renders
+export const TokenList = memo(({ tokens, searchTerm }: TokenListProps) => {
+  // Memoize expensive filtering operation
+  const filteredTokens = useMemo(() => {
+    return tokens.filter(token => 
+      token.symbol.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      token.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [tokens, searchTerm]);
+  
+  return (
+    <div>
+      {filteredTokens.map(token => (
+        <TokenItem key={token.id} token={token} />
+      ))}
+    </div>
+  );
+});
 ```
 
-## Best Practices
+### Bundle Optimization
 
-1. **Avoid Inline Styles**: Use Tailwind classes or style utilities
-2. **Minimize Style Props**: Avoid passing many style props to components
-3. **Use Semantic HTML**: Use the appropriate HTML elements for accessibility
-4. **Keep It DRY**: Don't repeat the same style patterns, use utilities
-5. **Document Exceptions**: If you need to deviate from these patterns, document why
+1. Analyze bundle size regularly
+2. Remove unused dependencies
+3. Use dynamic imports for code splitting
+4. Implement tree shaking
+
+## Security Standards
+
+### Input Validation
+
+1. Validate all user inputs
+2. Sanitize data before processing
+3. Use parameterized queries for database operations
+4. Implement proper error handling
+
+```typescript
+// Good input validation
+function validateSwapRequest(request: SwapRequest): ValidationResult {
+  if (!request.fromToken) {
+    return { isValid: false, error: 'From token is required' };
+  }
+  
+  if (!request.toToken) {
+    return { isValid: false, error: 'To token is required' };
+  }
+  
+  const amount = parseFloat(request.amount);
+  if (isNaN(amount) || amount <= 0) {
+    return { isValid: false, error: 'Invalid amount' };
+  }
+  
+  return { isValid: true };
+}
+```
+
+### Authentication
+
+1. Use secure session management
+2. Implement proper password hashing
+3. Use HTTPS for all communications
+4. Validate JWT tokens properly
+
+## Accessibility Standards
+
+### WCAG Compliance
+
+1. Use semantic HTML elements
+2. Provide proper alt text for images
+3. Ensure sufficient color contrast
+4. Implement keyboard navigation
+
+```typescript
+// Good accessibility practices
+export function SwapButton({ onClick, disabled }: SwapButtonProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-disabled={disabled}
+      aria-label="Swap tokens"
+      className="swap-button"
+    >
+      <SwapIcon aria-hidden="true" />
+      <span>Swap</span>
+    </button>
+  );
+}
+```
+
+## Error Handling
+
+### Error Boundaries
+
+1. Implement error boundaries for React components
+2. Provide user-friendly error messages
+3. Log errors for debugging
+4. Implement retry mechanisms where appropriate
+
+```typescript
+// Good error handling
+interface AsyncComponentProps {
+  fetchData: () => Promise<Data>;
+}
+
+export function AsyncComponent({ fetchData }: AsyncComponentProps) {
+  const [data, setData] = useState<Data | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const result = await fetchData();
+        setData(result);
+        setError(null);
+      } catch (err) {
+        setError('Failed to load data. Please try again.');
+        console.error('Data loading error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadData();
+  }, [fetchData]);
+  
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} onRetry={loadData} />;
+  if (!data) return <NoDataMessage />;
+  
+  return <DataView data={data} />;
+}
+```
+
+By following these standards, we ensure a consistent, maintainable, and high-quality codebase that is easy to understand and extend.

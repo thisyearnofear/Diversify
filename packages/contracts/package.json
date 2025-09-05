@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "viem": "2.23.15",
-    "@mento-protocol/mento-sdk": "^1.0.7"
+    "@mento-protocol/mento-sdk": "^1.0.7",
+    "ethers": "^6.13.5"
   },
   "devDependencies": {
     "tsup": "^8.0.0",

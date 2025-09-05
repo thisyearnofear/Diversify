@@ -37,14 +37,10 @@ const TOKEN_METADATA: Record<string, { name: string; region: string }> = {
   EXOF: { name: 'CFA Franc', region: 'Africa' },
 };
 
-// Region colors
-const REGION_COLORS: Record<string, string> = {
-  USA: '#4299E1',
-  Europe: '#48BB78',
-  LatAm: '#F6AD55',
-  Africa: '#F56565',
-  Asia: '#9F7AEA',
-};
+// Import shared region colors
+import { getRegionColors } from '@stable-station/shared';
+
+const REGION_COLORS = getRegionColors('enhanced');
 
 export function useStablecoinPortfolio(address?: string) {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,4 +1,9 @@
-// Region colors for visualization
+/**
+ * @deprecated Use @stable-station/shared instead
+ * This file is kept for backward compatibility during migration
+ */
+
+// Re-export enhanced colors from shared package
 export const REGION_COLORS = {
   USA: "#3B82F6", // Enhanced blue
   Europe: "#22C55E", // Enhanced green

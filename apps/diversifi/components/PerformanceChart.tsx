@@ -1,14 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import type { Region } from "@/hooks/use-user-region";
+import { getRegionColors, type Region } from "@stable-station/shared";
 
-// Region colors for visualization
-const REGION_COLORS: Record<Region, string> = {
-  USA: "#4299E1", // blue
-  Europe: "#48BB78", // green
-  LatAm: "#F6AD55", // orange
-  Africa: "#F56565", // red
-  Asia: "#9F7AEA", // purple
-};
+// Use enhanced region colors for MiniPay environment
+const REGION_COLORS = getRegionColors('enhanced');
 
 interface PerformanceChartProps {
   data: {

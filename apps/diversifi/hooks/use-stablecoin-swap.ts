@@ -1,33 +1,17 @@
-import { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
-import {
-  CELO_TOKENS,
-  ALFAJORES_TOKENS,
-  MENTO_BROKER_ADDRESS,
-  ALFAJORES_BROKER_ADDRESS,
-  MENTO_ABIS,
-  handleMentoError,
-} from '../utils/mento-utils';
-import { isMiniPayEnvironment } from '../utils/environment';
-import { EXCHANGE_RATES } from '../constants/regions';
+/**
+ * @deprecated Use useSwapCelo from @stable-station/shared instead
+ * This file is kept for backward compatibility during migration
+ */
 
-interface SwapParams {
-  fromToken: string;
-  toToken: string;
-  amount: string;
-  slippageTolerance?: number; // in percentage, e.g., 0.5 for 0.5%
-  onApprovalSubmitted?: (txHash: string) => void;
-  onApprovalConfirmed?: () => void;
-  onSwapSubmitted?: (txHash: string) => void;
-}
-
-interface SwapResult {
-  approvalTxHash?: string;
-  swapTxHash?: string;
-  success: boolean;
-}
+import { useSwapCelo } from "@stable-station/shared";
 
 export function useStablecoinSwap() {
+  return useSwapCelo({ 
+    environment: 'enhanced',
+    defaultChain: 'celo',
+    defaultProtocol: 'mento'
+  });
+}
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [txHash, setTxHash] = useState<string | null>(null);

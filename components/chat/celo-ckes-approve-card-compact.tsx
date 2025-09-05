@@ -19,7 +19,7 @@ import {
 import { toast } from 'sonner';
 import { useCkesSwap } from '@/hooks/use-celo-ckes';
 import { useTokenPrice } from '@/hooks/use-token-price';
-import { formatUnits } from 'ethers/lib/utils';
+import { formatUnits } from 'ethers';
 
 // Card for entering cUSD amount and approving cUSD for swap to cKES.
 interface CkesApproveCardCompactProps {

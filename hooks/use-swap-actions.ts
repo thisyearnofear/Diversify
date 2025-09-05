@@ -1,13 +1,10 @@
-import { ethers } from 'ethers';
-import { useAccount } from 'wagmi';
-import { toast } from 'sonner';
-import { useAuth } from './use-auth';
-import { useActions } from './use-actions';
-import { ADDRESSES, ABIS, type SwapParams } from '../constants/celo-tokens';
-import { handleSwapError } from '../utils/celo-utils';
+/**
+ * @deprecated Use useSwapBase from @stable-station/shared instead
+ * This file is kept for backward compatibility during migration
+ */
 
-export function useSwapActions(
-  swapState: any,
+export { useSwapBase as useSwapActions } from "@stable-station/shared";
+
   tokenApproval: any,
   networkState: any,
   exchangeRates: any,
