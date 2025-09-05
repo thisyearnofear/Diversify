@@ -19,7 +19,7 @@ const REGION_INSIGHTS: Record<
   Africa: {
     title: "Regional Insights: Africa",
     description:
-      "Based on historical data for this region, many users diversify into EUR and USD to address local currency volatility.",
+      "Based on historical data for this region, many users diversifi into EUR and USD to address local currency volatility.",
     typicalAllocation: {
       Africa: 40,
       USA: 30,

@@ -2,14 +2,14 @@
 
 ## Architecture Overview
 
-Stable Station follows a monorepo architecture with a clear separation of concerns between the main chat-based learning platform and the DiversiFi MiniPay application.
+diversifi follows a monorepo architecture with a clear separation of concerns between the main chat-based learning platform and the DiversiFi MiniPay application.
 
 ### Monorepo Structure
 
 ```
 /
 ├── apps/
-│   ├── web/               # Main Stable Station web app
+│   ├── web/               # Main diversifi web app
 │   └── diversifi/         # MiniPay DiversiFi app
 ├── packages/
 │   ├── shared/            # Shared utilities, components, hooks
@@ -45,7 +45,7 @@ The platform uses a unified wallet system that works across both applications:
 
 ### Multi-Chain Support
 
-Stable Station supports multiple blockchain networks:
+diversifi supports multiple blockchain networks:
 
 - **Base**: For USDbC swaps and other Base network tokens
 - **Celo**: For cUSD, cEUR, cREAL, cKES, and other Celo stablecoins
@@ -55,7 +55,7 @@ Stable Station supports multiple blockchain networks:
 
 ### Action-Based Learning System
 
-The core of Stable Station is its action-based learning system:
+The core of diversifi is its action-based learning system:
 
 1. Actions are stored in a database with specific requirements
 2. Users complete actions to unlock new features

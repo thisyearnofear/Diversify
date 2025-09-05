@@ -1,9 +1,9 @@
 /**
- * @deprecated Use useWalletBase from @stable-station/shared instead
+ * @deprecated Use useWalletBase from @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
-import { useWalletBase } from "@stable-station/shared";
+import { useWalletBase } from "@diversifi/shared";
 
 export function useWalletConnection() {
   const wallet = useWalletBase({ environment: 'enhanced' });

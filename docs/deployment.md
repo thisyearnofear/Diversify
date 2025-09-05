@@ -1,12 +1,12 @@
 # Deployment and Environment Configuration
 
-This document covers deployment strategies and environment configuration for Stable Station.
+This document covers deployment strategies and environment configuration for diversifi.
 
 ## Deployment Options
 
 ### Netlify Deployment (Recommended)
 
-Stable Station is optimized for deployment on Netlify.
+diversifi is optimized for deployment on Netlify.
 
 #### Setup Process
 
@@ -24,14 +24,14 @@ Stable Station is optimized for deployment on Netlify.
 
 Configure these environment variables in the Netlify dashboard:
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key for AI functionality | Yes |
-| `POSTGRES_URL` | PostgreSQL connection string | Yes |
-| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | WalletConnect project ID | Yes |
-| `BRIAN_API_KEY` | Brian API key for Polygon DAI swaps | Yes |
-| `NEXT_PUBLIC_CELO_RPC` | Celo RPC URL | No (defaults to public RPC) |
-| `NEXT_PUBLIC_COINGECKO_API_KEY` | CoinGecko API key | No (limited without) |
+| Variable                               | Description                         | Required                    |
+| -------------------------------------- | ----------------------------------- | --------------------------- |
+| `OPENAI_API_KEY`                       | OpenAI API key for AI functionality | Yes                         |
+| `POSTGRES_URL`                         | PostgreSQL connection string        | Yes                         |
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | WalletConnect project ID            | Yes                         |
+| `BRIAN_API_KEY`                        | Brian API key for Polygon DAI swaps | Yes                         |
+| `NEXT_PUBLIC_CELO_RPC`                 | Celo RPC URL                        | No (defaults to public RPC) |
+| `NEXT_PUBLIC_COINGECKO_API_KEY`        | CoinGecko API key                   | No (limited without)        |
 
 #### Deployment Hooks
 
@@ -42,11 +42,13 @@ Netlify automatically builds and deploys on pushes to the main branch.
 For manual deployment to any Node.js hosting provider:
 
 1. Build the application:
+
    ```bash
    pnpm build
    ```
 
 2. Start the server:
+
    ```bash
    pnpm start
    ```
@@ -59,10 +61,10 @@ A Dockerfile is available for containerized deployment:
 
 ```bash
 # Build the image
-docker build -t stable-station .
+docker build -t diversifi .
 
 # Run the container
-docker run -p 3000:3000 stable-station
+docker run -p 3000:3000 diversifi
 ```
 
 ## Environment Configuration
@@ -115,9 +117,9 @@ NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY=...
 The application automatically detects its environment:
 
 ```typescript
-const isDevelopment = process.env.NODE_ENV === 'development';
-const isProduction = process.env.NODE_ENV === 'production';
-const isTest = process.env.NODE_ENV === 'test';
+const isDevelopment = process.env.NODE_ENV === "development";
+const isProduction = process.env.NODE_ENV === "production";
+const isTest = process.env.NODE_ENV === "test";
 ```
 
 ### Feature Flags
@@ -125,8 +127,8 @@ const isTest = process.env.NODE_ENV === 'test';
 Environment variables can be used as feature flags:
 
 ```typescript
-const enableDiversiFi = process.env.NEXT_PUBLIC_ENABLE_DIVERSIFI === 'true';
-const enableAnalytics = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true';
+const enableDiversiFi = process.env.NEXT_PUBLIC_ENABLE_DIVERSIFI === "true";
+const enableAnalytics = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
 ```
 
 ## Multi-Environment Setup
@@ -205,7 +207,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: "22"
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -267,10 +269,10 @@ The application uses structured logging:
 
 ```typescript
 // Info level logging
-logger.info('User completed action', { userId, actionId });
+logger.info("User completed action", { userId, actionId });
 
 // Error level logging
-logger.error('Failed to execute swap', { error, parameters });
+logger.error("Failed to execute swap", { error, parameters });
 ```
 
 ## Performance Optimization

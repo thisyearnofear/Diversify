@@ -1,6 +1,6 @@
 # DiversiFi - Inflation Protection Through Stablecoin Diversification
 
-DiversiFi is a MiniPay-optimized application that helps users protect their savings from inflation by strategically diversifying their stablecoin portfolio across different geographical regions using Mento's local stablecoins.
+DiversiFi is a MiniPay-optimized application that helps users protect their savings from inflation by strategically diversifiing their stablecoin portfolio across different geographical regions using Mento's local stablecoins.
 
 ![DiversiFi Banner](https://i.imgur.com/placeholder.png) <!-- Replace with actual banner image -->
 
@@ -36,8 +36,8 @@ This project is a submission for the "Build on MiniPay with Mento Local Stableco
 
 ```bash
 # Clone the repository (if not already done)
-git clone https://github.com/yourusername/stables-station.git
-cd stables-station
+git clone https://github.com/yourusername/diversifi.git
+cd diversifi
 
 # Install dependencies
 pnpm install
@@ -74,7 +74,7 @@ NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key
 
 ### Live Demo
 
-You can access the live demo of DiversiFi at: [https://stable-station.netlify.app/diversifi](https://stable-station.netlify.app/diversifi)
+You can access the live demo of DiversiFi at: [https://diversifi.netlify.app/diversifi](https://diversifi.netlify.app/diversifi)
 
 ## 💱 Mento Stablecoins Integration
 
@@ -138,7 +138,7 @@ To test DiversiFi with MiniPay:
 4. Alternatively, test with the live demo:
    - Open MiniPay
    - Go to Developer Settings as described above
-   - Enter: `https://stable-station.netlify.app/diversifi`
+   - Enter: `https://diversifi.netlify.app/diversifi`
    - Click "Go" to launch the app
 
 ## 👤 User Experience
@@ -190,8 +190,8 @@ DiversiFi directly addresses the Inflation Protection and Swapping track by enab
 
 ### Demo Resources
 
-- **Live Demo**: [https://stable-station.netlify.app/diversifi](https://stable-station.netlify.app/diversifi)
-- **GitHub Repository**: [https://github.com/yourusername/stables-station](https://github.com/yourusername/stables-station)
+- **Live Demo**: [https://diversifi.netlify.app/diversifi](https://diversifi.netlify.app/diversifi)
+- **GitHub Repository**: [https://github.com/yourusername/diversifi](https://github.com/yourusername/diversifi)
 - **Video Demo**: [Link to 4-minute demo video](https://youtu.be/your-video-id)
 
 ## MiniPay Integration Learnings
@@ -364,7 +364,7 @@ DiversiFi stands out from similar applications by focusing on:
 
 ## 📝 Conclusion
 
-DiversiFi transforms how MiniPay users interact with stablecoins, moving beyond simple payments to intelligent portfolio management for inflation protection. By making it easy to diversify across Mento's local stablecoins, DiversiFi helps users in emerging markets preserve their purchasing power and make more informed financial decisions.
+DiversiFi transforms how MiniPay users interact with stablecoins, moving beyond simple payments to intelligent portfolio management for inflation protection. By making it easy to diversifi across Mento's local stablecoins, DiversiFi helps users in emerging markets preserve their purchasing power and make more informed financial decisions.
 
 The app demonstrates the power of local stablecoins to solve real-world problems, particularly in regions with high inflation or currency volatility. By combining educational elements with practical tools, DiversiFi makes sophisticated financial strategies accessible to everyday users.
 

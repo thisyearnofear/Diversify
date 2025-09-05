@@ -1,11 +1,11 @@
 /**
- * @deprecated Use useSwapBase from @stable-station/shared instead
+ * @deprecated Use useSwapBase from @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
 'use client';
 
-import { useSwapBase } from "@stable-station/shared";
+import { useSwapBase } from "@diversifi/shared";
 
 export function usePolygonDaiSwap() {
   return useSwapBase({ 

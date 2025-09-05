@@ -76,7 +76,7 @@ export default function OverviewTab({
               Protect Your Savings
             </h2>
             <p className="mb-6 text-gray-800">
-              Diversify your stablecoins across regions to hedge against
+              diversifi your stablecoins across regions to hedge against
               inflation
             </p>
             {isInMiniPay ? (
@@ -273,7 +273,7 @@ export default function OverviewTab({
                           />
                         </svg>
                         <span>
-                          Diversify across regions to protect against inflation
+                          diversifi across regions to protect against inflation
                         </span>
                       </li>
                       <li className="flex items-start">

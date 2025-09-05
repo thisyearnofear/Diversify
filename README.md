@@ -1,6 +1,6 @@
-# Stable Station
+# diversifi
 
-Stable Station is a chat-based Web3 onboarding experience that helps users learn about blockchain technology through hands-on action-based learning.
+diversifi is a chat-based Web3 onboarding experience that helps users learn about blockchain technology through hands-on action-based learning.
 
 For detailed documentation, please see the [docs/README.md](docs/README.md) file.
 

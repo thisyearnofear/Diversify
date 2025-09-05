@@ -1,10 +1,10 @@
 # Wallet Authentication and Security
 
-This document covers wallet authentication implementation and security considerations for Stable Station.
+This document covers wallet authentication implementation and security considerations for diversifi.
 
 ## Sign-In With Ethereum (SIWE)
 
-Stable Station uses Sign-In With Ethereum (SIWE) for secure authentication, providing a seamless integration of wallet connection and authentication.
+diversifi uses Sign-In With Ethereum (SIWE) for secure authentication, providing a seamless integration of wallet connection and authentication.
 
 ### SIWE Flow
 
@@ -44,7 +44,7 @@ Resources:
 #### Frontend
 
 ```typescript
-import { SiweMessage } from 'siwe';
+import { SiweMessage } from "siwe";
 
 async function signInWithEthereum(address: string, chainId: number) {
   try {
@@ -52,33 +52,33 @@ async function signInWithEthereum(address: string, chainId: number) {
     const message = new SiweMessage({
       domain: window.location.host,
       address,
-      statement: 'Sign in to Stable Station',
+      statement: "Sign in to diversifi",
       uri: origin,
-      version: '1',
+      version: "1",
       chainId,
       nonce: await getNonceFromServer(),
     });
-    
+
     const preparedMessage = message.prepareMessage();
-    
+
     // Request signature from user
     const signature = await signMessage(preparedMessage);
-    
+
     // Send to backend for verification
     const response = await verifySignature({
       message: preparedMessage,
       signature,
       address,
     });
-    
+
     if (response.ok) {
       // Authentication successful
       return { success: true };
     } else {
-      throw new Error('Signature verification failed');
+      throw new Error("Signature verification failed");
     }
   } catch (error) {
-    console.error('SIWE authentication failed:', error);
+    console.error("SIWE authentication failed:", error);
     return { success: false, error: error.message };
   }
 }
@@ -87,31 +87,35 @@ async function signInWithEthereum(address: string, chainId: number) {
 #### Backend
 
 ```typescript
-import { SiweMessage } from 'siwe';
+import { SiweMessage } from "siwe";
 
-async function verifySiweSignature(message: string, signature: string, address: string) {
+async function verifySiweSignature(
+  message: string,
+  signature: string,
+  address: string
+) {
   try {
     const siweMessage = new SiweMessage(message);
     const fields = await siweMessage.validate(signature);
-    
+
     // Additional validation
     if (fields.nonce !== getExpectedNonceForAddress(address)) {
-      throw new Error('Invalid nonce');
+      throw new Error("Invalid nonce");
     }
-    
+
     if (fields.domain !== getExpectedDomain()) {
-      throw new Error('Invalid domain');
+      throw new Error("Invalid domain");
     }
-    
+
     // Create secure session
     const session = await createSecureSession(address);
-    
+
     return {
       success: true,
       session,
     };
   } catch (error) {
-    console.error('SIWE verification failed:', error);
+    console.error("SIWE verification failed:", error);
     return {
       success: false,
       error: error.message,
@@ -130,10 +134,10 @@ Sessions are managed through secure, encrypted HTTP-only cookies:
 // Session cookie configuration
 const sessionCookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
+  secure: process.env.NODE_ENV === "production",
+  sameSite: "lax",
   maxAge: 60 * 60 * 24 * 7, // 1 week
-  path: '/',
+  path: "/",
 };
 ```
 
@@ -165,13 +169,13 @@ async function executeTokenSwap(params: SwapParameters) {
   try {
     // Validate inputs
     if (!isValidAddress(params.tokenIn) || !isValidAddress(params.tokenOut)) {
-      throw new Error('Invalid token addresses');
+      throw new Error("Invalid token addresses");
     }
-    
+
     if (params.amountIn <= 0) {
-      throw new Error('Invalid swap amount');
+      throw new Error("Invalid swap amount");
     }
-    
+
     // Estimate gas and set limit
     const gasEstimate = await contract.estimateGas.swap(
       params.amountIn,
@@ -180,9 +184,9 @@ async function executeTokenSwap(params: SwapParameters) {
       params.to,
       params.deadline
     );
-    
+
     const gasLimit = gasEstimate.mul(120).div(100); // Add 20% buffer
-    
+
     // Execute swap
     const transaction = await contract.swap(
       params.amountIn,
@@ -194,27 +198,27 @@ async function executeTokenSwap(params: SwapParameters) {
         gasLimit,
       }
     );
-    
+
     // Wait for confirmation
     const receipt = await transaction.wait();
-    
+
     return {
       success: true,
       transactionHash: receipt.transactionHash,
     };
   } catch (error) {
-    console.error('Swap execution failed:', error);
-    
+    console.error("Swap execution failed:", error);
+
     // Handle specific error cases
-    if (error.code === 'INSUFFICIENT_FUNDS') {
-      return { success: false, error: 'Insufficient funds for gas' };
+    if (error.code === "INSUFFICIENT_FUNDS") {
+      return { success: false, error: "Insufficient funds for gas" };
     }
-    
-    if (error.code === 'UNPREDICTABLE_GAS_LIMIT') {
-      return { success: false, error: 'Transaction would fail' };
+
+    if (error.code === "UNPREDICTABLE_GAS_LIMIT") {
+      return { success: false, error: "Transaction would fail" };
     }
-    
-    return { success: false, error: 'Swap execution failed' };
+
+    return { success: false, error: "Swap execution failed" };
   }
 }
 ```
@@ -230,18 +234,22 @@ async function executeTokenSwap(params: SwapParameters) {
 ```typescript
 // Generate CSRF token
 function generateCsrfToken(): string {
-  return crypto.randomBytes(32).toString('hex');
+  return crypto.randomBytes(32).toString("hex");
 }
 
 // Middleware to check CSRF token
 function csrfProtection(req, res, next) {
-  const tokenFromHeader = req.headers['x-csrf-token'];
-  const tokenFromCookie = req.cookies['csrf-token'];
-  
-  if (!tokenFromHeader || !tokenFromCookie || tokenFromHeader !== tokenFromCookie) {
-    return res.status(403).json({ error: 'Invalid CSRF token' });
+  const tokenFromHeader = req.headers["x-csrf-token"];
+  const tokenFromCookie = req.cookies["csrf-token"];
+
+  if (
+    !tokenFromHeader ||
+    !tokenFromCookie ||
+    tokenFromHeader !== tokenFromCookie
+  ) {
+    return res.status(403).json({ error: "Invalid CSRF token" });
   }
-  
+
   next();
 }
 ```
@@ -253,7 +261,7 @@ function csrfProtection(req, res, next) {
 Implement strict Content Security Policy:
 
 ```http
-Content-Security-Policy: 
+Content-Security-Policy:
   default-src 'self';
   script-src 'self' 'unsafe-inline' https://*.walletconnect.com;
   style-src 'self' 'unsafe-inline';
@@ -277,14 +285,14 @@ Implement rate limiting to prevent abuse:
 const rateLimitConfig = {
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.',
+  message: "Too many requests from this IP, please try again later.",
 };
 
 // Stricter rate limiting for sensitive endpoints
 const strictRateLimitConfig = {
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 5, // limit each IP to 5 requests per windowMs
-  message: 'Too many authentication attempts, please try again later.',
+  message: "Too many authentication attempts, please try again later.",
 };
 ```
 
@@ -335,17 +343,17 @@ try {
   res.json({ success: true });
 } catch (error) {
   // Log detailed error server-side
-  logger.error('Swap execution failed', {
+  logger.error("Swap execution failed", {
     error: error.message,
     stack: error.stack,
     user: req.user.id,
     params: sanitizeParams(swapParams),
   });
-  
+
   // Return generic error to user
-  res.status(500).json({ 
-    success: false, 
-    error: 'Transaction failed. Please try again.' 
+  res.status(500).json({
+    success: false,
+    error: "Transaction failed. Please try again.",
   });
 }
 ```
@@ -356,16 +364,16 @@ Implement comprehensive audit logging for security-relevant events:
 
 ```typescript
 // Audit log for authentication events
-logger.info('User authenticated', {
+logger.info("User authenticated", {
   userId: user.id,
   address: user.walletAddress,
   ipAddress: req.ip,
-  userAgent: req.get('User-Agent'),
+  userAgent: req.get("User-Agent"),
   timestamp: new Date().toISOString(),
 });
 
 // Audit log for transactions
-logger.info('Token swap executed', {
+logger.info("Token swap executed", {
   userId: user.id,
   fromToken: swapParams.fromToken,
   toToken: swapParams.toToken,
@@ -429,4 +437,4 @@ pnpm update
 2. **External**: Inform users if their data was compromised
 3. **Regulatory**: Report to relevant authorities if required
 
-By following these security practices, Stable Station ensures a secure authentication and wallet integration experience for users while protecting their assets and data.
+By following these security practices, diversifi ensures a secure authentication and wallet integration experience for users while protecting their assets and data.

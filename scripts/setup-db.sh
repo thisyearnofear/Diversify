@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Database setup script for Diversify project
+# Database setup script for diversifi project
 
 set -e  # Exit on any error
 
@@ -33,8 +33,8 @@ USERNAME=$(whoami)
 echo "👤 Current username: $USERNAME"
 
 # Create database
-echo "🔄 Creating database 'diversify_dev'..."
-createdb diversify_dev 2>/dev/null || echo "⚠️  Database 'diversify_dev' already exists or creation failed"
+echo "🔄 Creating database 'diversifi_dev'..."
+createdb diversifi_dev 2>/dev/null || echo "⚠️  Database 'diversifi_dev' already exists or creation failed"
 
 # Update .env file
 echo "🔄 Updating .env file with database connection string..."
@@ -46,7 +46,7 @@ if [ ! -f ".env" ]; then
 fi
 
 # Update the POSTGRES_URL in .env file
-sed -i.bak "s|POSTGRES_URL=postgres://user:pass@host:5432/dbname|POSTGRES_URL=postgres://$USERNAME@localhost:5432/diversify_dev|g" .env
+sed -i.bak "s|POSTGRES_URL=postgres://user:pass@host:5432/dbname|POSTGRES_URL=postgres://$USERNAME@localhost:5432/diversifi_dev|g" .env
 sed -i.bak "s|POSTGRES_URL_NON_POOLING=${POSTGRES_URL}?sslmode=require|POSTGRES_URL_NON_POOLING=${POSTGRES_URL}|g" .env
 
 # Remove backup file
@@ -56,7 +56,7 @@ echo "✅ .env file updated"
 
 # Run database migrations
 echo "🔄 Running database migrations..."
-if POSTGRES_URL="postgres://$USERNAME@localhost:5432/diversify_dev" npx drizzle-kit push --config=drizzle.config.ts; then
+if POSTGRES_URL="postgres://$USERNAME@localhost:5432/diversifi_dev" npx drizzle-kit push --config=drizzle.config.ts; then
     echo "✅ Database migrations completed successfully"
 else
     echo "❌ Database migrations failed"
@@ -66,7 +66,7 @@ fi
 echo "🎉 Database setup completed successfully!"
 echo ""
 echo "To verify the setup, you can run:"
-echo "   psql -d diversify_dev -c \"\\dt\""
+echo "   psql -d diversifi_dev -c \"\\dt\""
 echo ""
 echo "To run the development server:"
 echo "   pnpm dev"

@@ -1,6 +1,6 @@
-# @stable-station/config
+# @diversifi/config
 
-This package contains shared configuration files for Stable Station applications.
+This package contains shared configuration files for diversifi applications.
 
 ## Usage
 
@@ -8,7 +8,7 @@ This package contains shared configuration files for Stable Station applications
 
 ```json
 {
-  "extends": "@stable-station/config/typescript/nextjs.json"
+  "extends": "@diversifi/config/typescript/nextjs.json"
 }
 ```
 
@@ -16,7 +16,7 @@ This package contains shared configuration files for Stable Station applications
 
 ```js
 module.exports = {
-  extends: ["@stable-station/config/eslint-preset"]
+  extends: ["@diversifi/config/eslint-preset"],
 };
 ```
 
@@ -24,7 +24,7 @@ module.exports = {
 
 ```js
 module.exports = {
-  presets: [require("@stable-station/config/tailwind")]
+  presets: [require(\"@diversifi/config/tailwind\")]
 };
 ```
 

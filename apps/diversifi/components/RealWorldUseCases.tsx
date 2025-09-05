@@ -94,7 +94,7 @@ export default function RealWorldUseCases({
         <h3 className="font-medium text-blue-700 mb-1">Why This Matters</h3>
         <p className="text-sm text-blue-600">
           In many emerging markets, local currencies can lose 10-30% of their
-          value in a single year due to inflation and devaluation. Diversifying
+          value in a single year due to inflation and devaluation. diversifiing
           across stablecoins from different regions provides a practical way to
           preserve purchasing power.
         </p>

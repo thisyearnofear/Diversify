@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The AI integration system provides intelligent assistance to users, helping them learn about Web3, complete actions, and interact with the Stable Station application.
+The AI integration system provides intelligent assistance to users, helping them learn about Web3, complete actions, and interact with the diversifi application.
 
 ## Core Components
 

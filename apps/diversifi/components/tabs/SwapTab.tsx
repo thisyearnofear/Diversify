@@ -46,11 +46,11 @@ const getSwapUseCase = (fromRegion: Region, toRegion: Region): string => {
     Europe: {
       Africa: "Support family in Africa or invest in African growth markets",
       USA: "Pay for US-based services or prepare for travel to the USA",
-      LatAm: "Diversify savings or prepare for Latin American travel",
+      LatAm: "diversifi savings or prepare for Latin American travel",
       Asia: "Purchase goods from Asian markets or prepare for travel",
     },
     LatAm: {
-      Africa: "Diversify savings into different emerging markets",
+      Africa: "diversifi savings into different emerging markets",
       USA: "Pay for US imports or online services priced in USD",
       Europe: "Save for European travel or education opportunities",
       Asia: "Purchase electronics or goods from Asian markets",
@@ -59,11 +59,11 @@ const getSwapUseCase = (fromRegion: Region, toRegion: Region): string => {
       Africa: "Invest in African growth markets or support projects",
       USA: "Pay for US-based services or education expenses",
       Europe: "Prepare for European travel or business opportunities",
-      LatAm: "Diversify into Latin American markets or prepare for travel",
+      LatAm: "diversifi into Latin American markets or prepare for travel",
     },
   };
 
-  return cases[fromRegion]?.[toRegion] || "Diversify your stablecoin portfolio";
+  return cases[fromRegion]?.[toRegion] || "diversifi your stablecoin portfolio";
 };
 
 export default function SwapTab({
@@ -584,7 +584,7 @@ export default function SwapTab({
                   onClick={() => {
                     // This would ideally navigate to the overview tab
                     alert(
-                      "To change your home region, please go to the Stable Station tab"
+                      "To change your home region, please go to the diversifi tab"
                     );
                   }}
                   className="text-xs bg-gray-200 hover:bg-gray-300 text-gray-700 px-2 py-1 rounded-md transition-colors"
@@ -972,7 +972,7 @@ export default function SwapTab({
                         <span className="text-green-600">cEUR</span>
                       </p>
                       <p className="text-sm text-gray-700">
-                        Ideal for diversifying your savings and preparing for
+                        Ideal for diversifiing your savings and preparing for
                         potential travel to Europe.
                       </p>
                     </div>
@@ -994,7 +994,7 @@ export default function SwapTab({
                         <span className="text-green-600">cEUR</span>
                       </p>
                       <p className="text-sm text-gray-700">
-                        Diversify your portfolio geographically and protect
+                        diversifi your portfolio geographically and protect
                         against USD-specific economic factors.
                       </p>
                     </div>
@@ -1097,7 +1097,7 @@ export default function SwapTab({
                         <span className="text-green-600">cEUR</span>
                       </p>
                       <p className="text-sm text-gray-700">
-                        Ideal for diversifying your portfolio and preparing for
+                        Ideal for diversifiing your portfolio and preparing for
                         potential travel or business with Europe.
                       </p>
                     </div>

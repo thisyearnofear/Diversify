@@ -682,7 +682,7 @@ export function useDivviRegistration(chainName = 'aerodrome') {
         const actionTitle =
           chainName === 'celo'
             ? 'Register on Celo'
-            : 'Register on Stable Station';
+            : 'Register on diversifi';
 
         const response = await fetch('/api/actions/by-title', {
           method: 'POST',
@@ -701,7 +701,7 @@ export function useDivviRegistration(chainName = 'aerodrome') {
               `Action '${actionTitle}' not found in database, marking as completed anyway`,
             );
             setStatus('completed');
-            const platform = chainName === 'celo' ? 'Celo' : 'Stable Station';
+            const platform = chainName === 'celo' ? 'Celo' : 'diversifi';
             toast.success(`Registration on ${platform} completed!`);
             return;
           } else {
@@ -725,13 +725,13 @@ export function useDivviRegistration(chainName = 'aerodrome') {
         // Even if there's an error with the database, we'll still mark it as completed
         // This ensures the user can proceed to the next step
         setStatus('completed');
-        const platform = chainName === 'celo' ? 'Celo' : 'Stable Station';
+        const platform = chainName === 'celo' ? 'Celo' : 'diversifi';
         toast.success(`Registration on ${platform} completed!`);
         return;
       }
 
       setStatus('completed');
-      const platform = chainName === 'celo' ? 'Celo' : 'Stable Station';
+      const platform = chainName === 'celo' ? 'Celo' : 'diversifi';
       toast.success(`Registration on ${platform} completed!`);
     } catch (error) {
       console.error('Error completing registration:', error);

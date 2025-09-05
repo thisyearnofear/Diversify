@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Web3 integration system connects the Stable Station application with blockchain networks, allowing users to interact with smart contracts, manage wallets, and perform on-chain actions.
+The Web3 integration system connects the diversifi application with blockchain networks, allowing users to interact with smart contracts, manage wallets, and perform on-chain actions.
 
 ## Core Components
 

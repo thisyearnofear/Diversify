@@ -11577,10 +11577,10 @@ function useWalletBase(options = {}) {
 // src/hooks/use-wallet-wagmi.ts
 var import_react11 = require("react");
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/context.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/context.js
 var import_react3 = require("react");
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/utils/getAction.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/utils/getAction.js
 function getAction2(client, actionFn, name) {
   const action_implicit = client[actionFn.name];
   if (typeof action_implicit === "function")
@@ -11591,13 +11591,13 @@ function getAction2(client, actionFn, name) {
   return (params) => actionFn(client, params);
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/version.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/version.js
 var version3 = "2.16.7";
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/utils/getVersion.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/utils/getVersion.js
 var getVersion = () => `@wagmi/core@${version3}`;
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/errors/base.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/errors/base.js
 var __classPrivateFieldGet = function(receiver, state, kind, f) {
   if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
   if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -11676,7 +11676,7 @@ _BaseError_instances = /* @__PURE__ */ new WeakSet(), _BaseError_walk = function
   return err;
 };
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/errors/config.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/errors/config.js
 var ChainNotConfiguredError = class extends BaseError3 {
   constructor() {
     super("Chain not configured.");
@@ -11700,7 +11700,7 @@ var ConnectorAlreadyConnectedError = class extends BaseError3 {
   }
 };
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/connect.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/connect.js
 async function connect(config, parameters) {
   let connector;
   if (typeof parameters.connector === "function") {
@@ -11740,7 +11740,7 @@ async function connect(config, parameters) {
   }
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/disconnect.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/disconnect.js
 async function disconnect(config, parameters = {}) {
   let connector;
   if (parameters.connector)
@@ -11784,7 +11784,7 @@ async function disconnect(config, parameters = {}) {
   }
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/utils/getUnit.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/utils/getUnit.js
 function getUnit(unit) {
   if (typeof unit === "number")
     return unit;
@@ -11793,7 +11793,7 @@ function getUnit(unit) {
   return Math.abs(weiUnits[unit]);
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getAccount.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getAccount.js
 function getAccount(config) {
   const uid2 = config.state.current;
   const connection = config.state.connections.get(uid2);
@@ -11857,7 +11857,7 @@ function getAccount(config) {
   }
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/multicall.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/multicall.js
 async function multicall2(config, parameters) {
   const { allowFailure = true, chainId, contracts: contracts2, ...rest } = parameters;
   const client = config.getClient({ chainId });
@@ -11869,7 +11869,7 @@ async function multicall2(config, parameters) {
   });
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/readContract.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/readContract.js
 function readContract2(config, parameters) {
   const { chainId, ...rest } = parameters;
   const client = config.getClient({ chainId });
@@ -11877,7 +11877,7 @@ function readContract2(config, parameters) {
   return action(rest);
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/readContracts.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/readContracts.js
 async function readContracts(config, parameters) {
   const { allowFailure = true, blockNumber, blockTag, ...rest } = parameters;
   const contracts2 = parameters.contracts;
@@ -11918,7 +11918,7 @@ async function readContracts(config, parameters) {
   }
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getBalance.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getBalance.js
 async function getBalance2(config, parameters) {
   const { address, blockNumber, blockTag, chainId, token: tokenAddress, unit = "ether" } = parameters;
   if (tokenAddress) {
@@ -11999,12 +11999,12 @@ async function getTokenBalance(config, parameters) {
   return { decimals, formatted, symbol, value };
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getChainId.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getChainId.js
 function getChainId2(config) {
   return config.state.chainId;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/utils/deepEqual.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/utils/deepEqual.js
 function deepEqual(a, b) {
   if (a === b)
     return true;
@@ -12043,7 +12043,7 @@ function deepEqual(a, b) {
   return a !== a && b !== b;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getChains.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getChains.js
 var previousChains = [];
 function getChains(config) {
   const chains = config.chains;
@@ -12053,7 +12053,7 @@ function getChains(config) {
   return chains;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getConnections.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getConnections.js
 var previousConnections = [];
 function getConnections(config) {
   const connections = [...config.state.connections.values()];
@@ -12065,7 +12065,7 @@ function getConnections(config) {
   return connections;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/getConnectors.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/getConnectors.js
 var previousConnectors = [];
 function getConnectors(config) {
   const connectors = config.connectors;
@@ -12075,7 +12075,7 @@ function getConnectors(config) {
   return connectors;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/errors/connector.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/errors/connector.js
 var SwitchChainNotSupportedError = class extends BaseError3 {
   constructor({ connector }) {
     super(`"${connector.name}" does not support programmatic chain switching.`);
@@ -12088,7 +12088,7 @@ var SwitchChainNotSupportedError = class extends BaseError3 {
   }
 };
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/switchChain.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/switchChain.js
 async function switchChain2(config, parameters) {
   const { addEthereumChainParameter, chainId } = parameters;
   const connection = config.state.connections.get(parameters.connector?.uid ?? config.state.current);
@@ -12109,7 +12109,7 @@ async function switchChain2(config, parameters) {
   return chain;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/watchAccount.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/watchAccount.js
 function watchAccount(config, parameters) {
   const { onChange } = parameters;
   return config.subscribe(() => getAccount(config), onChange, {
@@ -12122,13 +12122,13 @@ function watchAccount(config, parameters) {
   });
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/watchChainId.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/watchChainId.js
 function watchChainId(config, parameters) {
   const { onChange } = parameters;
   return config.subscribe((state) => state.chainId, onChange);
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/watchConnections.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/watchConnections.js
 function watchConnections(config, parameters) {
   const { onChange } = parameters;
   return config.subscribe(() => getConnections(config), onChange, {
@@ -12136,7 +12136,7 @@ function watchConnections(config, parameters) {
   });
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/watchConnectors.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/watchConnectors.js
 function watchConnectors(config, parameters) {
   const { onChange } = parameters;
   return config._internal.connectors.subscribe((connectors, prevConnectors) => {
@@ -12144,16 +12144,16 @@ function watchConnectors(config, parameters) {
   });
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/context.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/context.js
 var WagmiContext = (0, import_react3.createContext)(void 0);
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/version.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/version.js
 var version4 = "2.14.16";
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/utils/getVersion.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/utils/getVersion.js
 var getVersion2 = () => `wagmi@${version4}`;
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/errors/base.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/errors/base.js
 var BaseError4 = class extends BaseError3 {
   constructor() {
     super(...arguments);
@@ -12172,7 +12172,7 @@ var BaseError4 = class extends BaseError3 {
   }
 };
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/errors/context.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/errors/context.js
 var WagmiProviderNotFoundError = class extends BaseError4 {
   constructor() {
     super("`useConfig` must be used within `WagmiProvider`.", {
@@ -12187,7 +12187,7 @@ var WagmiProviderNotFoundError = class extends BaseError4 {
   }
 };
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useConfig.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useConfig.js
 var import_react4 = require("react");
 function useConfig(parameters = {}) {
   const config = parameters.config ?? (0, import_react4.useContext)(WagmiContext);
@@ -12196,7 +12196,7 @@ function useConfig(parameters = {}) {
   return config;
 }
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/actions/watchChains.js
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/actions/watchChains.js
 function watchChains(config, parameters) {
   const { onChange } = parameters;
   return config._internal.chains.subscribe((chains, prevChains) => {
@@ -12204,7 +12204,7 @@ function watchChains(config, parameters) {
   });
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useSyncExternalStoreWithTracked.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useSyncExternalStoreWithTracked.js
 var import_react5 = require("react");
 var import_with_selector = __toESM(require_with_selector(), 1);
 var isPlainObject = (obj) => typeof obj === "object" && !Array.isArray(obj);
@@ -12247,10 +12247,138 @@ function useSyncExternalStoreWithTracked(subscribe, getSnapshot, getServerSnapsh
   }, [result]);
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useAccount.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useAccount.js
 function useAccount(parameters = {}) {
   const config = useConfig(parameters);
   return useSyncExternalStoreWithTracked((onChange) => watchAccount(config, { onChange }), () => getAccount(config));
+}
+
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/query/utils.js
+function hashFn(queryKey) {
+  return JSON.stringify(queryKey, (_, value) => {
+    if (isPlainObject2(value))
+      return Object.keys(value).sort().reduce((result, key) => {
+        result[key] = value[key];
+        return result;
+      }, {});
+    if (typeof value === "bigint")
+      return value.toString();
+    return value;
+  });
+}
+function isPlainObject2(value) {
+  if (!hasObjectPrototype(value)) {
+    return false;
+  }
+  const ctor = value.constructor;
+  if (typeof ctor === "undefined")
+    return true;
+  const prot = ctor.prototype;
+  if (!hasObjectPrototype(prot))
+    return false;
+  if (!prot.hasOwnProperty("isPrototypeOf"))
+    return false;
+  return true;
+}
+function hasObjectPrototype(o) {
+  return Object.prototype.toString.call(o) === "[object Object]";
+}
+function filterQueryOptions(options) {
+  const {
+    // import('@tanstack/query-core').QueryOptions
+    _defaulted,
+    behavior,
+    gcTime,
+    initialData,
+    initialDataUpdatedAt,
+    maxPages,
+    meta,
+    networkMode,
+    queryFn,
+    queryHash,
+    queryKey,
+    queryKeyHashFn,
+    retry,
+    retryDelay,
+    structuralSharing: structuralSharing2,
+    // import('@tanstack/query-core').InfiniteQueryObserverOptions
+    getPreviousPageParam,
+    getNextPageParam,
+    initialPageParam,
+    // import('@tanstack/react-query').UseQueryOptions
+    _optimisticResults,
+    enabled,
+    notifyOnChangeProps,
+    placeholderData,
+    refetchInterval,
+    refetchIntervalInBackground,
+    refetchOnMount,
+    refetchOnReconnect,
+    refetchOnWindowFocus,
+    retryOnMount,
+    select,
+    staleTime,
+    suspense,
+    throwOnError,
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // wagmi
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    config,
+    connector,
+    query,
+    ...rest
+  } = options;
+  return rest;
+}
+
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/query/connect.js
+function connectMutationOptions(config) {
+  return {
+    mutationFn(variables) {
+      return connect(config, variables);
+    },
+    mutationKey: ["connect"]
+  };
+}
+
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/query/disconnect.js
+function disconnectMutationOptions(config) {
+  return {
+    mutationFn(variables) {
+      return disconnect(config, variables);
+    },
+    mutationKey: ["disconnect"]
+  };
+}
+
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/query/getBalance.js
+function getBalanceQueryOptions(config, options = {}) {
+  return {
+    async queryFn({ queryKey }) {
+      const { address, scopeKey: _, ...parameters } = queryKey[1];
+      if (!address)
+        throw new Error("address is required");
+      const balance = await getBalance2(config, {
+        ...parameters,
+        address
+      });
+      return balance ?? null;
+    },
+    queryKey: getBalanceQueryKey(options)
+  };
+}
+function getBalanceQueryKey(options = {}) {
+  return ["balance", filterQueryOptions(options)];
+}
+
+// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.86.0_@types+react@18.3.20_react@19.1.0_typesc_531e4848e3e692ee44b24ea0d0d54f7c/node_modules/@wagmi/core/dist/esm/query/switchChain.js
+function switchChainMutationOptions(config) {
+  return {
+    mutationFn(variables) {
+      return switchChain2(config, variables);
+    },
+    mutationKey: ["switchChain"]
+  };
 }
 
 // ../../node_modules/.pnpm/@tanstack+query-core@5.72.2/node_modules/@tanstack/query-core/build/modern/subscribable.js
@@ -12295,7 +12423,7 @@ function resolveEnabled(enabled, query) {
 function hashKey(queryKey) {
   return JSON.stringify(
     queryKey,
-    (_, val) => isPlainObject2(val) ? Object.keys(val).sort().reduce((result, key) => {
+    (_, val) => isPlainObject3(val) ? Object.keys(val).sort().reduce((result, key) => {
       result[key] = val[key];
       return result;
     }, {}) : val
@@ -12306,7 +12434,7 @@ function replaceEqualDeep(a, b) {
     return a;
   }
   const array = isPlainArray(a) && isPlainArray(b);
-  if (array || isPlainObject2(a) && isPlainObject2(b)) {
+  if (array || isPlainObject3(a) && isPlainObject3(b)) {
     const aItems = array ? a : Object.keys(a);
     const aSize = aItems.length;
     const bItems = array ? b : Object.keys(b);
@@ -12343,8 +12471,8 @@ function shallowEqualObjects(a, b) {
 function isPlainArray(value) {
   return Array.isArray(value) && value.length === Object.keys(value).length;
 }
-function isPlainObject2(o) {
-  if (!hasObjectPrototype(o)) {
+function isPlainObject3(o) {
+  if (!hasObjectPrototype2(o)) {
     return false;
   }
   const ctor = o.constructor;
@@ -12352,7 +12480,7 @@ function isPlainObject2(o) {
     return true;
   }
   const prot = ctor.prototype;
-  if (!hasObjectPrototype(prot)) {
+  if (!hasObjectPrototype2(prot)) {
     return false;
   }
   if (!prot.hasOwnProperty("isPrototypeOf")) {
@@ -12363,7 +12491,7 @@ function isPlainObject2(o) {
   }
   return true;
 }
-function hasObjectPrototype(o) {
+function hasObjectPrototype2(o) {
   return Object.prototype.toString.call(o) === "[object Object]";
 }
 function replaceData(prevData, data, options) {
@@ -13199,134 +13327,6 @@ var MutationObserver = class extends Subscribable {
   }
 };
 
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/query/utils.js
-function hashFn(queryKey) {
-  return JSON.stringify(queryKey, (_, value) => {
-    if (isPlainObject3(value))
-      return Object.keys(value).sort().reduce((result, key) => {
-        result[key] = value[key];
-        return result;
-      }, {});
-    if (typeof value === "bigint")
-      return value.toString();
-    return value;
-  });
-}
-function isPlainObject3(value) {
-  if (!hasObjectPrototype2(value)) {
-    return false;
-  }
-  const ctor = value.constructor;
-  if (typeof ctor === "undefined")
-    return true;
-  const prot = ctor.prototype;
-  if (!hasObjectPrototype2(prot))
-    return false;
-  if (!prot.hasOwnProperty("isPrototypeOf"))
-    return false;
-  return true;
-}
-function hasObjectPrototype2(o) {
-  return Object.prototype.toString.call(o) === "[object Object]";
-}
-function filterQueryOptions(options) {
-  const {
-    // import('@tanstack/query-core').QueryOptions
-    _defaulted,
-    behavior,
-    gcTime,
-    initialData,
-    initialDataUpdatedAt,
-    maxPages,
-    meta,
-    networkMode,
-    queryFn,
-    queryHash,
-    queryKey,
-    queryKeyHashFn,
-    retry,
-    retryDelay,
-    structuralSharing: structuralSharing2,
-    // import('@tanstack/query-core').InfiniteQueryObserverOptions
-    getPreviousPageParam,
-    getNextPageParam,
-    initialPageParam,
-    // import('@tanstack/react-query').UseQueryOptions
-    _optimisticResults,
-    enabled,
-    notifyOnChangeProps,
-    placeholderData,
-    refetchInterval,
-    refetchIntervalInBackground,
-    refetchOnMount,
-    refetchOnReconnect,
-    refetchOnWindowFocus,
-    retryOnMount,
-    select,
-    staleTime,
-    suspense,
-    throwOnError,
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // wagmi
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    config,
-    connector,
-    query,
-    ...rest
-  } = options;
-  return rest;
-}
-
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/query/connect.js
-function connectMutationOptions(config) {
-  return {
-    mutationFn(variables) {
-      return connect(config, variables);
-    },
-    mutationKey: ["connect"]
-  };
-}
-
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/query/disconnect.js
-function disconnectMutationOptions(config) {
-  return {
-    mutationFn(variables) {
-      return disconnect(config, variables);
-    },
-    mutationKey: ["disconnect"]
-  };
-}
-
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/query/getBalance.js
-function getBalanceQueryOptions(config, options = {}) {
-  return {
-    async queryFn({ queryKey }) {
-      const { address, scopeKey: _, ...parameters } = queryKey[1];
-      if (!address)
-        throw new Error("address is required");
-      const balance = await getBalance2(config, {
-        ...parameters,
-        address
-      });
-      return balance ?? null;
-    },
-    queryKey: getBalanceQueryKey(options)
-  };
-}
-function getBalanceQueryKey(options = {}) {
-  return ["balance", filterQueryOptions(options)];
-}
-
-// ../../node_modules/.pnpm/@wagmi+core@2.16.7_@tanstack+query-core@5.72.2_@types+react@18.3.20_react@19.1.0_typesc_da705c9e83c35cd60a3f498836977b9d/node_modules/@wagmi/core/dist/esm/query/switchChain.js
-function switchChainMutationOptions(config) {
-  return {
-    mutationFn(variables) {
-      return switchChain2(config, variables);
-    },
-    mutationKey: ["switchChain"]
-  };
-}
-
 // ../../node_modules/.pnpm/@tanstack+react-query@5.72.2_react@19.1.0/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
 var React2 = __toESM(require("react"), 1);
 var import_jsx_runtime = require("react/jsx-runtime");
@@ -13544,7 +13544,7 @@ function useMutation(options, queryClient) {
   return { ...result, mutate, mutateAsync: result.mutate };
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/utils/query.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/utils/query.js
 function useQuery2(parameters) {
   const result = useQuery({
     ...parameters,
@@ -13555,14 +13555,14 @@ function useQuery2(parameters) {
   return result;
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useChainId.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useChainId.js
 var import_react6 = require("react");
 function useChainId(parameters = {}) {
   const config = useConfig(parameters);
   return (0, import_react6.useSyncExternalStore)((onChange) => watchChainId(config, { onChange }), () => getChainId2(config), () => getChainId2(config));
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useBalance.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useBalance.js
 function useBalance(parameters = {}) {
   const { address, query = {} } = parameters;
   const config = useConfig(parameters);
@@ -13575,24 +13575,24 @@ function useBalance(parameters = {}) {
   return useQuery2({ ...query, ...options, enabled });
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useChains.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useChains.js
 var import_react7 = require("react");
 function useChains(parameters = {}) {
   const config = useConfig(parameters);
   return (0, import_react7.useSyncExternalStore)((onChange) => watchChains(config, { onChange }), () => getChains(config), () => getChains(config));
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useConnect.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useConnect.js
 var import_react9 = require("react");
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useConnectors.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useConnectors.js
 var import_react8 = require("react");
 function useConnectors(parameters = {}) {
   const config = useConfig(parameters);
   return (0, import_react8.useSyncExternalStore)((onChange) => watchConnectors(config, { onChange }), () => getConnectors(config), () => getConnectors(config));
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useConnect.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useConnect.js
 function useConnect(parameters = {}) {
   const { mutation } = parameters;
   const config = useConfig(parameters);
@@ -13615,14 +13615,14 @@ function useConnect(parameters = {}) {
   };
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useConnections.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useConnections.js
 var import_react10 = require("react");
 function useConnections(parameters = {}) {
   const config = useConfig(parameters);
   return (0, import_react10.useSyncExternalStore)((onChange) => watchConnections(config, { onChange }), () => getConnections(config), () => getConnections(config));
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useDisconnect.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useDisconnect.js
 function useDisconnect(parameters = {}) {
   const { mutation } = parameters;
   const config = useConfig(parameters);
@@ -13639,7 +13639,7 @@ function useDisconnect(parameters = {}) {
   };
 }
 
-// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.72.2_@tanstack+react-query@5.72.2_react@19.1.0__@t_85702f6b1bd0f2e3b16252dea46a2ab0/node_modules/wagmi/dist/esm/hooks/useSwitchChain.js
+// ../../node_modules/.pnpm/wagmi@2.14.16_@tanstack+query-core@5.86.0_@tanstack+react-query@5.72.2_react@19.1.0__@t_f3ae6ddf9e97a75c5ecacb38c24675d5/node_modules/wagmi/dist/esm/hooks/useSwitchChain.js
 function useSwitchChain(parameters = {}) {
   const { mutation } = parameters;
   const config = useConfig(parameters);

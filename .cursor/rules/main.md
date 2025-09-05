@@ -1,6 +1,6 @@
-# Stable Station Development Guidelines
+# diversifi Development Guidelines
 
-This document serves as the main entry point for the development guidelines for the Stable Station application. It references all the specific guideline documents for different aspects of the application.
+This document serves as the main entry point for the development guidelines for the diversifi application. It references all the specific guideline documents for different aspects of the application.
 
 ## Architecture
 

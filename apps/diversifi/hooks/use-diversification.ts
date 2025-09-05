@@ -103,7 +103,7 @@ export function useDiversification(regionData: RegionData[], userRegion: string)
     if (userRegion && regionCounts[userRegion] && totalValue > 0 &&
         (regionCounts[userRegion] / totalValue) * 100 > 50) {
       tips.push(
-        `You have high exposure to your home region (${userRegion}). Consider diversifying more internationally.`
+        `You have high exposure to your home region (${userRegion}). Consider diversifiing more internationally.`
       );
     }
 

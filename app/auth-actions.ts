@@ -40,7 +40,7 @@ export const generateSiweChallenge = async (address: `0x${string}`) => {
       uri,
       version: '1',
       chainId: chain.id,
-      statement: 'Sign in to Stable Station',
+      statement: 'Sign in to diversifi',
     });
 
     console.log('Generated SIWE message:', {

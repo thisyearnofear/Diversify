@@ -1,6 +1,6 @@
 # Developer Guide
 
-This guide provides instructions for setting up a development environment and contributing to Stable Station.
+This guide provides instructions for setting up a development environment and contributing to diversifi.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone <repository-url>
-cd stable-station
+cd diversifi
 ```
 
 ### 2. Install Dependencies
@@ -54,7 +54,7 @@ pnpm db:seed
 
 ### Running the Applications
 
-#### Main Stable Station App
+#### Main diversifi App
 
 ```bash
 # Run development server
@@ -109,7 +109,7 @@ pnpm test:all
 ```
 /
 ├── apps/
-│   ├── web/               # Main Stable Station web app
+│   ├── web/               # Main diversifi web app
 │   │   ├── app/           # Next.js app directory
 │   │   ├── components/    # App-specific components
 │   │   ├── hooks/         # App-specific hooks
@@ -254,10 +254,10 @@ Use console logging judiciously:
 
 ```typescript
 // Good - descriptive messages
-console.log('User connected wallet:', { address, chainId });
+console.log("User connected wallet:", { address, chainId });
 
 // Bad - unclear messages
-console.log('Error happened');
+console.log("Error happened");
 ```
 
 ## MiniPay Development
@@ -267,11 +267,13 @@ For DiversiFi development with MiniPay:
 ### Testing with MiniPay
 
 1. Start development server:
+
    ```bash
    pnpm dev:diversifi
    ```
 
 2. Use ngrok to expose local server:
+
    ```bash
    ngrok http 3001  # Use the same port as your dev server
    ```
@@ -281,12 +283,17 @@ For DiversiFi development with MiniPay:
 ### MiniPay Requirements
 
 1. Set proper headers:
+
    - `X-Frame-Options: SAMEORIGIN`
    - `Content-Security-Policy: frame-ancestors 'self' *.minipay.app *.celo.org *.opera.com;`
 
 2. Use appropriate meta tags for mobile:
+
    ```html
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <meta
+     name="viewport"
+     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+   />
    ```
 
 3. Implement wallet connection for MiniPay:

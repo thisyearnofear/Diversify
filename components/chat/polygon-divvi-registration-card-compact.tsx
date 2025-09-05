@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useAccount } from 'wagmi';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { useState, useEffect } from "react";
+import { useAccount } from "wagmi";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import {
   Loader2,
   ChevronDown,
   ChevronUp,
   ExternalLink,
   CheckCircle,
-} from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { usePolygonDivviRegistration } from '@/hooks/use-polygon-divvi-registration';
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { usePolygonDivviRegistration } from "@/hooks/use-polygon-divvi-registration";
 
 interface PolygonDivviRegistrationCardCompactProps {
   onComplete?: () => void;
@@ -37,16 +37,16 @@ export function PolygonDivviRegistrationCardCompact({
 
   // Determine if we're in a loading state
   const isLoading = [
-    'checking',
-    'registering',
-    'transaction-pending',
-    'transaction-confirming',
-    'transaction-submitted',
-    'completing',
+    "checking",
+    "registering",
+    "transaction-pending",
+    "transaction-confirming",
+    "transaction-submitted",
+    "completing",
   ].includes(status);
 
   // Determine if the registration is completed
-  const isCompleted = isRegistered || status === 'completed';
+  const isCompleted = isRegistered || status === "completed";
 
   // Handle registration
   const handleRegister = async () => {
@@ -60,7 +60,7 @@ export function PolygonDivviRegistrationCardCompact({
 
       await register();
     } catch (error) {
-      console.error('Error registering:', error);
+      console.error("Error registering:", error);
     }
   };
 
@@ -78,8 +78,8 @@ export function PolygonDivviRegistrationCardCompact({
   const [hasCalledOnComplete, setHasCalledOnComplete] = useState(false);
 
   useEffect(() => {
-    if (status === 'completed' && onComplete && !hasCalledOnComplete) {
-      console.log('Registration completed, calling onComplete');
+    if (status === "completed" && onComplete && !hasCalledOnComplete) {
+      console.log("Registration completed, calling onComplete");
       setHasCalledOnComplete(true);
       onComplete();
     }
@@ -93,7 +93,7 @@ export function PolygonDivviRegistrationCardCompact({
           <div>
             <h3 className="font-medium">Registration Complete</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              You're now registered with Stable Station on Polygon!
+              You're now registered with diversifi on Polygon!
             </p>
             {txHash && (
               <a
@@ -119,7 +119,7 @@ export function PolygonDivviRegistrationCardCompact({
           <div className="flex items-center gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-medium">Register with Stable Station</h3>
+                <h3 className="font-medium">Register with diversifi</h3>
                 <Badge
                   variant="outline"
                   className="text-xs bg-purple-100 dark:bg-purple-900 border-purple-200"
@@ -128,25 +128,25 @@ export function PolygonDivviRegistrationCardCompact({
                 </Badge>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                Activate your Stable Station account on Polygon
+                Activate your diversifi account on Polygon
               </p>
               {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
-              {status === 'wrong-network' && (
+              {status === "wrong-network" && (
                 <p className="text-xs text-amber-600 mt-1">
                   You need to switch to the Polygon network to continue
                 </p>
               )}
-              {status === 'transaction-pending' && (
+              {status === "transaction-pending" && (
                 <p className="text-xs text-amber-600 mt-1">
                   Transaction pending...
                 </p>
               )}
-              {status === 'transaction-confirming' && (
+              {status === "transaction-confirming" && (
                 <p className="text-xs text-amber-600 mt-1">
                   Transaction confirming...
                 </p>
               )}
-              {status === 'transaction-success' && (
+              {status === "transaction-success" && (
                 <p className="text-xs text-green-600 mt-1">
                   Transaction successful! Click "Complete Registration"
                 </p>
@@ -203,14 +203,14 @@ export function PolygonDivviRegistrationCardCompact({
                         Switching Network...
                       </>
                     ) : (
-                      'Switch to Polygon Network'
+                      "Switch to Polygon Network"
                     )}
                   </Button>
-                ) : status === 'not-registered' ||
-                  status === 'error' ||
-                  status === 'idle' ||
-                  status === 'checking' ||
-                  (status === 'transaction-pending' && error) ? (
+                ) : status === "not-registered" ||
+                  status === "error" ||
+                  status === "idle" ||
+                  status === "checking" ||
+                  (status === "transaction-pending" && error) ? (
                   <Button
                     onClick={handleRegister}
                     disabled={isLoading || !address}
@@ -223,10 +223,10 @@ export function PolygonDivviRegistrationCardCompact({
                         Processing...
                       </>
                     ) : (
-                      'Register'
+                      "Register"
                     )}
                   </Button>
-                ) : status === 'transaction-success' ? (
+                ) : status === "transaction-success" ? (
                   <Button
                     onClick={handleComplete}
                     disabled={isLoading}
@@ -239,7 +239,7 @@ export function PolygonDivviRegistrationCardCompact({
                         Processing...
                       </>
                     ) : (
-                      'Complete Registration'
+                      "Complete Registration"
                     )}
                   </Button>
                 ) : null}

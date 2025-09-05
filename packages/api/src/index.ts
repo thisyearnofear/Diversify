@@ -2,5 +2,5 @@
 // This will be replaced with actual exports as they are implemented
 export const api = {
   version: '0.1.0',
-  name: '@stable-station/api'
+  * name: '@diversifi/api'
 };

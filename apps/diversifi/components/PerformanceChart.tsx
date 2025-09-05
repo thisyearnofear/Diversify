@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { getRegionColors, type Region } from "@stable-station/shared";
+import { getRegionColors, type Region } from "@diversifi/shared";
 
 // Use enhanced region colors for MiniPay environment
-const REGION_COLORS = getRegionColors('enhanced');
+const REGION_COLORS = getRegionColors("enhanced");
 
 interface PerformanceChartProps {
   data: {

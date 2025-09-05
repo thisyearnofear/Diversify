@@ -1,7 +1,7 @@
 /**
- * @stable-station/shared
+ * @diversifi/shared
  * 
- * Shared utilities, constants, and components for Stable Station
+ * Shared utilities, constants, and components for diversifi
  * Eliminates duplication between main app and Diversifi MiniPay app
  */
 

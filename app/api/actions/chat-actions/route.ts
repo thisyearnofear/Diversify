@@ -121,7 +121,7 @@ export async function GET(request: Request) {
         OPTIMISM: [
           {
             title: 'Register on Optimism',
-            description: 'Register on Stable Station via the Optimism network',
+            description: 'Register on diversifi via the Optimism network',
             chain: 'OPTIMISM',
             difficulty: 'beginner',
             steps: [
@@ -154,7 +154,7 @@ export async function GET(request: Request) {
         BASE: [
           {
             title: 'Register on Base',
-            description: 'Register on Stable Station via the Base network',
+            description: 'Register on diversifi via the Base network',
             chain: 'BASE',
             difficulty: 'beginner',
             steps: [
@@ -186,7 +186,7 @@ export async function GET(request: Request) {
         POLYGON: [
           {
             title: 'Register on Polygon',
-            description: 'Register on Stable Station via the Polygon network',
+            description: 'Register on diversifi via the Polygon network',
             chain: 'POLYGON',
             difficulty: 'beginner',
             steps: [
@@ -252,7 +252,7 @@ export async function GET(request: Request) {
         REGISTRATION: [
           {
             title: 'Register on Base',
-            description: 'Register on Stable Station via the Base network',
+            description: 'Register on diversifi via the Base network',
             chain: 'BASE',
             difficulty: 'beginner',
             steps: [
@@ -267,7 +267,7 @@ export async function GET(request: Request) {
           },
           {
             title: 'Register on Celo',
-            description: 'Register on Stable Station via the Celo network',
+            description: 'Register on diversifi via the Celo network',
             chain: 'CELO',
             difficulty: 'beginner',
             steps: [

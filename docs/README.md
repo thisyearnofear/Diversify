@@ -1,6 +1,6 @@
-# Stable Station Documentation
+# diversifi Documentation
 
-Welcome to Stable Station, a chat-based Web3 onboarding experience that helps users learn about blockchain technology through hands-on action-based learning.
+Welcome to diversifi, a chat-based Web3 onboarding experience that helps users learn about blockchain technology through hands-on action-based learning.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Welcome to Stable Station, a chat-based Web3 onboarding experience that helps us
 
 ## Overview
 
-Stable Station is an innovative platform that combines AI-powered chat interactions with real Web3 actions, allowing users to learn blockchain concepts by actually doing them. Users can:
+diversifi is an innovative platform that combines AI-powered chat interactions with real Web3 actions, allowing users to learn blockchain concepts by actually doing them. Users can:
 
 - Complete specific blockchain actions to unlock new features
 - Track progress across different learning categories
@@ -25,7 +25,7 @@ Stable Station is an innovative platform that combines AI-powered chat interacti
 
 ## Key Features
 
-### Main Application ("ai-chatbot" / Stable Station)
+### Main Application ("ai-chatbot" / diversifi)
 
 1. **AI-Powered Learning**: Sophisticated AI chatbot with OpenAI + Agentkit integration
 2. **Multi-Chain Support**: Works with Base, Celo, Ethereum, Polygon, and Optimism
@@ -45,12 +45,12 @@ Stable Station is an innovative platform that combines AI-powered chat interacti
 
 ## Architecture
 
-Stable Station follows a monorepo structure with two main applications and shared packages:
+diversifi follows a monorepo structure with two main applications and shared packages:
 
 ```
 /
 ├── apps/
-│   ├── web/               # Main Stable Station web app
+│   ├── web/               # Main diversifi web app
 │   └── diversifi/         # MiniPay DiversiFi app
 ├── packages/
 │   ├── shared/            # Shared utilities, components, hooks
@@ -61,8 +61,9 @@ Stable Station follows a monorepo structure with two main applications and share
 ```
 
 Both applications share core infrastructure while maintaining distinct purposes:
+
 - The main app provides a comprehensive Web3 learning platform
-- DiversiFi offers a focused MiniPay inflation protection tool
+- diversifi offers a focused MiniPay inflation protection tool
 
 ## Getting Started
 
@@ -79,7 +80,7 @@ Both applications share core infrastructure while maintaining distinct purposes:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd stable-station
+cd diversifi
 
 # Install dependencies
 pnpm install
@@ -174,7 +175,7 @@ Required environment variables include:
 
 ## Contributing
 
-We welcome contributions to Stable Station! Please follow these steps:
+We welcome contributions to diversifi! Please follow these steps:
 
 1. Fork the repository
 2. Create a feature branch

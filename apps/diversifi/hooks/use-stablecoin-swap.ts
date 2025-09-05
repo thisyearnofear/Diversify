@@ -1,9 +1,9 @@
 /**
- * @deprecated Use useSwapCelo from @stable-station/shared instead
+ * @deprecated Use useSwapCelo from @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
-import { useSwapCelo } from "@stable-station/shared";
+import { useSwapCelo } from "@diversifi/shared";
 
 export function useStablecoinSwap() {
   return useSwapCelo({ 

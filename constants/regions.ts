@@ -1,5 +1,5 @@
 /**
- * @deprecated Use @stable-station/shared instead
+ * @deprecated Use @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
@@ -9,4 +9,4 @@ export {
   AVAILABLE_TOKENS,
   getMockRegionData as MOCK_REGION_DATA,
   type Region
-} from "@stable-station/shared";
+} from "@diversifi/shared";

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import { CELO_TOKENS, MENTO_ABIS } from '@stable-station/mento-utils';
+import { CELO_TOKENS, MENTO_ABIS } from '@diversifi/mento-utils';
 
 interface StablecoinBalance {
   token: string;
@@ -38,7 +38,7 @@ const TOKEN_METADATA: Record<string, { name: string; region: string }> = {
 };
 
 // Import shared region colors
-import { getRegionColors } from '@stable-station/shared';
+import { getRegionColors } from '@diversifi/shared';
 
 const REGION_COLORS = getRegionColors('enhanced');
 

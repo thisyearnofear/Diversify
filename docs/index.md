@@ -1,6 +1,6 @@
-# Stable Station Documentation Index
+# diversifi Documentation Index
 
-Welcome to the Stable Station documentation. This index provides an overview of all available documentation resources.
+Welcome to the diversifi documentation. This index provides an overview of all available documentation resources.
 
 ## 📚 Getting Started
 

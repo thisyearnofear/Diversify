@@ -1,17 +1,17 @@
-# @stable-station/api
+# @diversifi/api
 
-This package contains shared API utilities for Stable Station applications.
+This package contains shared API utilities for diversifi applications.
 
 ## Usage
 
 ```tsx
-import { fetchExchangeRates, fetchInflationData } from '@stable-station/api';
+import { fetchExchangeRates, fetchInflationData } from "@diversifi/api";
 
 // Fetch exchange rates
 const rates = await fetchExchangeRates();
 
 // Fetch inflation data
-const inflationData = await fetchInflationData('USA');
+const inflationData = await fetchInflationData("USA");
 ```
 
 ## Features

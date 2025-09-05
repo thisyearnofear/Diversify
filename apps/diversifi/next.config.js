@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@stable-station/mento-utils"],
+  transpilePackages: ["@diversifi/mento-utils"],
   // We'll add shared packages here as we extract them
 
   // Configure base path if needed

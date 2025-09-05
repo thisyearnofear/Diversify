@@ -1,4 +1,4 @@
-# Stable Station Architecture Guidelines
+# diversifi Architecture Guidelines
 
 ## Core Architecture Principles
 

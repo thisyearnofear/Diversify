@@ -2,5 +2,5 @@
 // This will be replaced with actual exports as they are implemented
 export const ui = {
   version: '0.1.0',
-  name: '@stable-station/ui'
+  name: '@diversifi/ui'
 };

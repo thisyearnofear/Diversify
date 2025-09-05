@@ -1,16 +1,14 @@
-# @stable-station/ui
+# @diversifi/ui
 
-This package contains shared UI components for Stable Station applications.
+This package contains shared UI components for diversifi applications.
 
 ## Usage
 
 ```tsx
-import { Button } from '@stable-station/ui';
+import { Button } from "@diversifi/ui";
 
 export default function MyComponent() {
-  return (
-    <Button variant="primary">Click me</Button>
-  );
+  return <Button variant="primary">Click me</Button>;
 }
 ```
 

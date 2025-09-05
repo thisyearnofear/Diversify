@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import type { Message } from '@/lib/types';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { CeloCcopSwapCardCompact } from './celo-ccop-swap-card-compact';
-import { DivviRegistrationCardCompact } from './divvi-registration-card-compact';
-import { useAccount } from 'wagmi';
-import { useAuth } from '@/hooks/use-auth';
-import { Coins } from 'lucide-react';
-import { useDivviRegistration } from '@/hooks/use-divvi-registration';
+import { useState } from "react";
+import type { Message } from "@/lib/types";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { CeloCcopSwapCardCompact } from "./celo-ccop-swap-card-compact";
+import { DivviRegistrationCardCompact } from "./divvi-registration-card-compact";
+import { useAccount } from "wagmi";
+import { useAuth } from "@/hooks/use-auth";
+import { Coins } from "lucide-react";
+import { useDivviRegistration } from "@/hooks/use-divvi-registration";
 
 interface CeloCcopActionMessageProps {
   message?: Message;
@@ -23,7 +23,7 @@ export function CeloCcopActionMessage({
   const [showAction, setShowAction] = useState(false);
   const { address } = useAccount();
   const { isAuthenticated } = useAuth();
-  const { isRegistered } = useDivviRegistration('celo');
+  const { isRegistered } = useDivviRegistration("celo");
 
   const handleStartAction = () => {
     setShowAction(true);
@@ -37,7 +37,7 @@ export function CeloCcopActionMessage({
       <div className="flex-1 space-y-2 overflow-hidden px-1">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
-            <div className="font-semibold">Stable Station</div>
+            <div className="font-semibold">diversifi</div>
           </div>
           <div className="prose prose-sm max-w-none">
             <p>

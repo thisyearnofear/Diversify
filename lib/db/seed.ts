@@ -102,7 +102,7 @@ export async function seedActions() {
   // Seed the Celo actions
   await seedCeloActions();
 
-  // Seed the Stable Station actions
+  // Seed the diversifi actions
   await seedStableStationActions();
 
   // Temporarily comment out the Polygon actions seeding to fix build

@@ -3,14 +3,14 @@ import { action } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 /**
- * Seeds the database with Stable Station actions.
+ * Seeds the database with diversifi actions.
  */
 export async function seedStableStationActions() {
-  console.log('Seeding Stable Station actions...');
+  console.log('Seeding diversifi actions...');
 
   if (!db) {
     console.warn(
-      '⚠️ Database not available. Cannot seed Stable Station actions.',
+      '⚠️ Database not available. Cannot seed diversifi actions.',
     );
     return;
   }
@@ -19,13 +19,13 @@ export async function seedStableStationActions() {
   const existingDivviAction = await db
     .select()
     .from(action)
-    .where(eq(action.title, 'Register on Stable Station'))
+    .where(eq(action.title, 'Register on diversifi'))
     .limit(1);
 
   if (existingDivviAction.length === 0) {
     // Create the Divvi registration action
     await db.insert(action).values({
-      title: 'Register on Stable Station',
+      title: 'Register on diversifi',
       description: 'Enable portfolio tracking on Base',
       category: 'STABLECOIN',
       chain: 'BASE',
@@ -60,9 +60,9 @@ export async function seedStableStationActions() {
       updatedAt: new Date(),
     });
 
-    console.log('Created Stable Station registration action');
+    console.log('Created diversifi registration action');
   } else {
-    console.log('Stable Station registration action already exists');
+    console.log('diversifi registration action already exists');
   }
 
   // Check if the Celo registration action already exists

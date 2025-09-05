@@ -7,7 +7,7 @@ INSERT INTO "Action" (
   prerequisites, steps, rewards, "createdAt", "updatedAt"
 ) VALUES (
   gen_random_uuid(), 
-  'Register on Stable Station',
+  'Register on diversifi',
   'Activate on the Base ecosystem for enhanced features',
   'STABLECOIN',
   'BASE',
@@ -19,7 +19,7 @@ INSERT INTO "Action" (
       "description": "Connect your wallet to continue"
     },
     {
-      "title": "Register on Stable Station",
+      "title": "Register on diversifi",
       "description": "Click ''Register'' to activate your account on Base"
     },
     {

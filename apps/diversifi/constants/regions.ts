@@ -1,5 +1,5 @@
 /**
- * @deprecated Use @stable-station/shared instead
+ * @deprecated Use @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 

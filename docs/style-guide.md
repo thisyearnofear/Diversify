@@ -1,31 +1,39 @@
 # Style Guide and Coding Standards
 
-This document outlines the coding standards and style guidelines for Stable Station.
+This document outlines the coding standards and style guidelines for diversifi.
 
 ## Core Principles
 
 ### 1. Enhancement First
+
 Consolidate existing components rather than creating new ones to prevent code duplication.
 
 ### 2. Aggressive Consolidation
+
 Delete unnecessary duplicate code to maintain a clean codebase.
 
 ### 3. Prevent Bloat
+
 Systematically audit before adding new features to avoid unnecessary complexity.
 
 ### 4. DRY (Don't Repeat Yourself)
+
 Maintain a single source of truth for all shared logic and constants.
 
 ### 5. Clean Code
+
 Ensure clear separation of concerns with explicit dependencies and well-organized structure.
 
 ### 6. Modular Design
+
 Create composable, testable, and independent modules.
 
 ### 7. Performance Optimization
+
 Optimize loading, caching, and resource management for better user experience.
 
 ### 8. Organized Structure
+
 Follow predictable structure with domain-driven design principles.
 
 ## TypeScript Standards
@@ -68,7 +76,7 @@ interface UserProfile {
 
 // Constants
 const MAX_RETRY_ATTEMPTS = 3;
-const API_BASE_URL = 'https://api.example.com';
+const API_BASE_URL = "https://api.example.com";
 
 // Variables and functions
 const userProfiles = getUserProfiles();
@@ -96,7 +104,11 @@ function calculateSwapAmount(
 }
 
 // Avoid
-function calculateSwapAmount(inputAmount: number, exchangeRate: number, feePercentage?: number): number {
+function calculateSwapAmount(
+  inputAmount: number,
+  exchangeRate: number,
+  feePercentage?: number
+): number {
   const fee = feePercentage || 0.0025;
   // Complex implementation with multiple responsibilities
 }
@@ -120,29 +132,25 @@ interface SwapCardProps {
 }
 
 export function SwapCard({ tokenFrom, tokenTo, onSwap }: SwapCardProps) {
-  const [amount, setAmount] = useState('');
-  const [error, setError] = useState('');
-  
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+
   const handleSwap = () => {
     const numericAmount = parseFloat(amount);
     if (isNaN(numericAmount) || numericAmount <= 0) {
-      setError('Please enter a valid amount');
+      setError("Please enter a valid amount");
       return;
     }
-    
+
     try {
       onSwap(numericAmount);
-      setError('');
+      setError("");
     } catch (err) {
-      setError('Failed to execute swap');
+      setError("Failed to execute swap");
     }
   };
-  
-  return (
-    <div className="swap-card">
-      {/* Component UI */}
-    </div>
-  );
+
+  return <div className="swap-card">{/* Component UI */}</div>;
 }
 ```
 
@@ -159,7 +167,7 @@ function useTokenBalance(token: Token) {
   const [balance, setBalance] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   useEffect(() => {
     const fetchBalance = async () => {
       try {
@@ -168,18 +176,18 @@ function useTokenBalance(token: Token) {
         setBalance(result);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch balance');
+        setError("Failed to fetch balance");
         setBalance(null);
       } finally {
         setLoading(false);
       }
     };
-    
+
     if (token) {
       fetchBalance();
     }
   }, [token]);
-  
+
   return { balance, loading, error };
 }
 ```
@@ -198,16 +206,16 @@ const UserContext = createContext<UserContextType | null>(null);
 
 // For complex local state
 interface SwapState {
-  step: 'input' | 'confirm' | 'executing' | 'completed';
+  step: "input" | "confirm" | "executing" | "completed";
   amount: string;
   estimatedOutput: number | null;
 }
 
 function swapReducer(state: SwapState, action: SwapAction): SwapState {
   switch (action.type) {
-    case 'SET_AMOUNT':
+    case "SET_AMOUNT":
       return { ...state, amount: action.payload };
-    case 'SET_STEP':
+    case "SET_STEP":
       return { ...state, step: action.payload };
     // Other cases
     default:
@@ -227,16 +235,16 @@ function swapReducer(state: SwapState, action: SwapAction): SwapState {
 
 ```typescript
 // Good styling approach
-import { cn } from '@/lib/utils';
-import { getRegionStyle } from '@/lib/styles/style-utils';
+import { cn } from "@/lib/utils";
+import { getRegionStyle } from "@/lib/styles/style-utils";
 
 export function TokenCard({ token, isSelected }: TokenCardProps) {
   return (
-    <div 
+    <div
       className={cn(
-        'p-4 rounded-lg border cursor-pointer transition-colors',
-        isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200',
-        getRegionStyle(token.region, 'light', 'bg')
+        "p-4 rounded-lg border cursor-pointer transition-colors",
+        isSelected ? "border-blue-500 bg-blue-50" : "border-gray-200",
+        getRegionStyle(token.region, "light", "bg")
       )}
     >
       {/* Card content */}
@@ -255,21 +263,21 @@ export function TokenCard({ token, isSelected }: TokenCardProps) {
 // Style utility example
 export function getRegionStyle(
   region: string,
-  intensity: 'light' | 'medium' | 'dark',
-  type: 'bg' | 'text' | 'border'
+  intensity: "light" | "medium" | "dark",
+  type: "bg" | "text" | "border"
 ): string {
   const styles: Record<string, Record<string, Record<string, string>>> = {
     Africa: {
       light: {
-        bg: 'bg-green-50',
-        text: 'text-green-700',
-        border: 'border-green-200'
+        bg: "bg-green-50",
+        text: "text-green-700",
+        border: "border-green-200",
       },
       // Other intensities
     },
     // Other regions
   };
-  
+
   return styles[region]?.[intensity]?.[type] || getDefaultStyle(type);
 }
 ```
@@ -285,13 +293,13 @@ export function getRegionStyle(
 
 ```typescript
 // Good unit test
-describe('calculateSwapAmount', () => {
-  it('should calculate correct amount with default fee', () => {
+describe("calculateSwapAmount", () => {
+  it("should calculate correct amount with default fee", () => {
     const result = calculateSwapAmount(100, 0.95);
     expect(result).toBeCloseTo(94.7625); // 100 * 0.95 * (1 - 0.0025)
   });
-  
-  it('should calculate correct amount with custom fee', () => {
+
+  it("should calculate correct amount with custom fee", () => {
     const result = calculateSwapAmount(100, 0.95, 0.01);
     expect(result).toBeCloseTo(94.05); // 100 * 0.95 * (1 - 0.01)
   });
@@ -307,36 +315,36 @@ describe('calculateSwapAmount', () => {
 
 ```typescript
 // Good component test
-describe('SwapCard', () => {
-  it('should render token information correctly', () => {
+describe("SwapCard", () => {
+  it("should render token information correctly", () => {
     render(
-      <SwapCard 
-        tokenFrom={mockTokenFrom} 
-        tokenTo={mockTokenTo} 
-        onSwap={vi.fn()} 
+      <SwapCard
+        tokenFrom={mockTokenFrom}
+        tokenTo={mockTokenTo}
+        onSwap={vi.fn()}
       />
     );
-    
+
     expect(screen.getByText(mockTokenFrom.symbol)).toBeInTheDocument();
     expect(screen.getByText(mockTokenTo.symbol)).toBeInTheDocument();
   });
-  
-  it('should call onSwap when swap button is clicked', async () => {
+
+  it("should call onSwap when swap button is clicked", async () => {
     const onSwap = vi.fn();
     render(
-      <SwapCard 
-        tokenFrom={mockTokenFrom} 
-        tokenTo={mockTokenTo} 
-        onSwap={onSwap} 
+      <SwapCard
+        tokenFrom={mockTokenFrom}
+        tokenTo={mockTokenTo}
+        onSwap={onSwap}
       />
     );
-    
-    const input = screen.getByPlaceholderText('Enter amount');
-    await userEvent.type(input, '100');
-    
-    const swapButton = screen.getByText('Swap');
+
+    const input = screen.getByPlaceholderText("Enter amount");
+    await userEvent.type(input, "100");
+
+    const swapButton = screen.getByText("Swap");
     await userEvent.click(swapButton);
-    
+
     expect(onSwap).toHaveBeenCalledWith(100);
   });
 });
@@ -390,6 +398,7 @@ footer (optional)
 ```
 
 Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -399,6 +408,7 @@ Types:
 - `chore`: Maintenance tasks
 
 Examples:
+
 ```
 feat(wallet): add support for MiniPay auto-connection
 
@@ -431,7 +441,7 @@ refactor/consolidate-wallet-hooks
 
 ```typescript
 // Good performance optimization
-import { memo, useMemo } from 'react';
+import { memo, useMemo } from "react";
 
 interface TokenListProps {
   tokens: Token[];
@@ -442,15 +452,16 @@ interface TokenListProps {
 export const TokenList = memo(({ tokens, searchTerm }: TokenListProps) => {
   // Memoize expensive filtering operation
   const filteredTokens = useMemo(() => {
-    return tokens.filter(token => 
-      token.symbol.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      token.name.toLowerCase().includes(searchTerm.toLowerCase())
+    return tokens.filter(
+      (token) =>
+        token.symbol.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        token.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [tokens, searchTerm]);
-  
+
   return (
     <div>
-      {filteredTokens.map(token => (
+      {filteredTokens.map((token) => (
         <TokenItem key={token.id} token={token} />
       ))}
     </div>
@@ -478,18 +489,18 @@ export const TokenList = memo(({ tokens, searchTerm }: TokenListProps) => {
 // Good input validation
 function validateSwapRequest(request: SwapRequest): ValidationResult {
   if (!request.fromToken) {
-    return { isValid: false, error: 'From token is required' };
+    return { isValid: false, error: "From token is required" };
   }
-  
+
   if (!request.toToken) {
-    return { isValid: false, error: 'To token is required' };
+    return { isValid: false, error: "To token is required" };
   }
-  
+
   const amount = parseFloat(request.amount);
   if (isNaN(amount) || amount <= 0) {
-    return { isValid: false, error: 'Invalid amount' };
+    return { isValid: false, error: "Invalid amount" };
   }
-  
+
   return { isValid: true };
 }
 ```
@@ -548,7 +559,7 @@ export function AsyncComponent({ fetchData }: AsyncComponentProps) {
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -557,20 +568,20 @@ export function AsyncComponent({ fetchData }: AsyncComponentProps) {
         setData(result);
         setError(null);
       } catch (err) {
-        setError('Failed to load data. Please try again.');
-        console.error('Data loading error:', err);
+        setError("Failed to load data. Please try again.");
+        console.error("Data loading error:", err);
       } finally {
         setLoading(false);
       }
     };
-    
+
     loadData();
   }, [fetchData]);
-  
+
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} onRetry={loadData} />;
   if (!data) return <NoDataMessage />;
-  
+
   return <DataView data={data} />;
 }
 ```

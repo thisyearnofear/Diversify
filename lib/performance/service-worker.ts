@@ -3,7 +3,7 @@
  * Implements caching strategies based on environment
  */
 
-import { AppEnvironment, getBundleStrategy } from "@stable-station/shared";
+import { AppEnvironment, getBundleStrategy } from "@diversifi/shared";
 
 // Cache configuration based on environment
 const getCacheConfig = () => {

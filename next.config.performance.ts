@@ -3,7 +3,7 @@
  * Environment-aware bundle splitting and optimization
  */
 
-import { getBundleStrategy } from "@stable-station/shared";
+import { getBundleStrategy } from "@diversifi/shared";
 
 const bundleStrategy = getBundleStrategy();
 
@@ -12,7 +12,7 @@ const performanceConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: [
-      '@stable-station/shared',
+      '@diversifi/shared',
       'lucide-react',
       '@radix-ui/react-icons'
     ],
@@ -92,8 +92,8 @@ const performanceConfig = {
     // MiniPay-specific optimizations
     swcMinify: true,
     modularizeImports: {
-      '@stable-station/shared': {
-        transform: '@stable-station/shared/{{member}}',
+      '@diversifi/shared': {
+        transform: '@diversifi/shared/{{member}}',
       },
     },
   }),

@@ -1,8 +1,8 @@
 /**
- * @deprecated Use useSwapCelo from @stable-station/shared instead
+ * @deprecated Use useSwapCelo from @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
 'use client';
 
-export { useSwapCelo as useCeloSwap } from "@stable-station/shared";
+export { useSwapCelo as useCeloSwap } from "@diversifi/shared";

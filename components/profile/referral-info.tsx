@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Copy, Check, Users, Link, Share2 } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Copy, Check, Users, Link, Share2 } from "lucide-react";
 
 export function ReferralInfo() {
   const [copied, setCopied] = useState(false);
 
   // This would typically come from your backend
-  const referralId = 'Papa';
+  const referralId = "Papa";
   const referralUrl = `https://stables-station.com/ref/${referralId}`;
 
   // Mock data for referrals
@@ -59,8 +59,8 @@ export function ReferralInfo() {
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: 'Join me on Stable Station',
-                    text: 'Check out Stable Station for stablecoins and more!',
+                    title: "Join me on diversifi",
+                    text: "Check out diversifi for stablecoins and more!",
                     url: referralUrl,
                   });
                 } else {
@@ -91,10 +91,7 @@ export function ReferralInfo() {
                 <span className="font-medium">{referralStats.total}</span>
               </div>
               <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-primary"
-                  style={{ width: '0%' }}
-                />
+                <div className="h-full bg-primary" style={{ width: "0%" }} />
               </div>
             </div>
 
@@ -128,10 +125,7 @@ export function ReferralInfo() {
                 </span>
               </div>
               <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-primary"
-                  style={{ width: '0%' }}
-                />
+                <div className="h-full bg-primary" style={{ width: "0%" }} />
               </div>
             </div>
 
@@ -167,7 +161,7 @@ export function ReferralInfo() {
               2
             </div>
             <p className="text-sm">
-              They register on Stable Station using your referral
+              They register on diversifi using your referral
             </p>
           </div>
           <div className="flex gap-3">

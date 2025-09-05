@@ -61,7 +61,7 @@ let actions = [
   {
     id: uuidv4(),
     title: 'Register on Optimism',
-    description: 'Register on Stable Station via the Optimism network',
+    description: 'Register on diversifi via the Optimism network',
     category: 'REGISTRATION',
     chain: 'OPTIMISM',
     difficulty: 'BEGINNER',
@@ -77,7 +77,7 @@ let actions = [
       },
       {
         title: 'Complete registration',
-        description: 'Register with Stable Station',
+        description: 'Register with diversifi',
       },
     ],
     rewards: [
@@ -92,7 +92,7 @@ let actions = [
   {
     id: uuidv4(),
     title: 'Register on Celo',
-    description: 'Register on Stable Station via the Celo network',
+    description: 'Register on diversifi via the Celo network',
     category: 'REGISTRATION',
     chain: 'CELO',
     difficulty: 'BEGINNER',
@@ -108,7 +108,7 @@ let actions = [
       },
       {
         title: 'Complete registration',
-        description: 'Register with Stable Station',
+        description: 'Register with diversifi',
       },
     ],
     rewards: [
@@ -123,7 +123,7 @@ let actions = [
   {
     id: uuidv4(),
     title: 'Register on Polygon',
-    description: 'Register on Stable Station via the Polygon network',
+    description: 'Register on diversifi via the Polygon network',
     category: 'REGISTRATION',
     chain: 'POLYGON',
     difficulty: 'BEGINNER',
@@ -139,7 +139,7 @@ let actions = [
       },
       {
         title: 'Complete registration',
-        description: 'Register with Stable Station',
+        description: 'Register with diversifi',
       },
     ],
     rewards: [
@@ -154,7 +154,7 @@ let actions = [
   {
     id: uuidv4(),
     title: 'Register on Base',
-    description: 'Register on Stable Station via the Base network',
+    description: 'Register on diversifi via the Base network',
     category: 'REGISTRATION',
     chain: 'BASE',
     difficulty: 'BEGINNER',
@@ -170,7 +170,7 @@ let actions = [
       },
       {
         title: 'Complete registration',
-        description: 'Register with Stable Station',
+        description: 'Register with diversifi',
       },
     ],
     rewards: [

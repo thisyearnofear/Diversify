@@ -6,11 +6,11 @@ config();
 
 async function main() {
   try {
-    console.log('Starting to seed Stable Station actions...');
+    console.log('Starting to seed diversifi actions...');
     await seedStableStationActions();
-    console.log('Successfully seeded Stable Station actions!');
+    console.log('Successfully seeded diversifi actions!');
   } catch (error) {
-    console.error('Error seeding Stable Station actions:', error);
+    console.error('Error seeding diversifi actions:', error);
     if (error instanceof Error) {
       console.error('Error details:', {
         message: error.message,

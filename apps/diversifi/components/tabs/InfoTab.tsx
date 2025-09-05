@@ -28,12 +28,12 @@ export default function InfoTab({
         </h2>
         <p className="text-gray-800 mb-4">
           DiversiFi helps you protect your savings from inflation by
-          diversifying your stablecoin portfolio across different regions.
+          diversifiing your stablecoin portfolio across different regions.
         </p>
 
         <div className="bg-blue-100 p-4 rounded-md mb-4 border border-blue-200 shadow-sm">
           <h3 className="font-bold text-blue-800 mb-2">
-            Why Diversify Stablecoins?
+            Why diversifi Stablecoins?
           </h3>
           <ul className="text-sm text-gray-800 list-disc pl-5 space-y-2">
             <li className="flex items-start">

@@ -97,7 +97,7 @@ export function useDiversification(regionData: RegionData[], userRegion: string)
     // User region specific advice
     if (userRegion && regionCounts[userRegion] > 50) {
       tips.push(
-        `You have high exposure to your home region (${userRegion}). Consider diversifying more internationally.`
+        `You have high exposure to your home region (${userRegion}). Consider diversifiing more internationally.`
       );
     }
 

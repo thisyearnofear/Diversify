@@ -228,7 +228,7 @@ export const userActionsPrompt = `You can propose userActions as a part of your 
 20. "register-base-action" - To help users register on Base. Use this when a user wants to register on Base or asks about Base registration. This will display a registration card in the chat that guides them through the registration process.
    Example args: {
      "title": "Register on Base",
-     "description": "Register on Stable Station via the Base network",
+     "description": "Register on diversifi via the Base network",
      "chain": "BASE",
      "difficulty": "beginner",
      "steps": [
@@ -245,7 +245,7 @@ export const userActionsPrompt = `You can propose userActions as a part of your 
 21. "register-polygon-action" - To help users register on Polygon. Use this when a user wants to register on Polygon or asks about Polygon registration. This will display a registration card in the chat that guides them through the registration process.
    Example args: {
      "title": "Register on Polygon",
-     "description": "Register on Stable Station via the Polygon network",
+     "description": "Register on diversifi via the Polygon network",
      "chain": "POLYGON",
      "difficulty": "beginner",
      "steps": [
@@ -262,7 +262,7 @@ export const userActionsPrompt = `You can propose userActions as a part of your 
 22. "register-celo-action" - To help users register on Celo. Use this when a user wants to register on Celo or asks about Celo registration. This will display a registration card in the chat that guides them through the registration process.
    Example args: {
      "title": "Register on Celo",
-     "description": "Register on Stable Station via the Celo network",
+     "description": "Register on diversifi via the Celo network",
      "chain": "CELO",
      "difficulty": "beginner",
      "steps": [
@@ -279,7 +279,7 @@ export const userActionsPrompt = `You can propose userActions as a part of your 
 23. "register-optimism-action" - To help users register on Optimism. Use this when a user wants to register on Optimism or asks about Optimism registration. This will display a registration card in the chat that guides them through the registration process.
    Example args: {
      "title": "Register on Optimism",
-     "description": "Register on Stable Station via the Optimism network",
+     "description": "Register on diversifi via the Optimism network",
      "chain": "OPTIMISM",
      "difficulty": "beginner",
      "steps": [

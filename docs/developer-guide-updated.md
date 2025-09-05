@@ -1,6 +1,6 @@
 # Developer Guide
 
-This guide provides instructions for setting up a development environment and contributing to Stable Station.
+This guide provides instructions for setting up a development environment and contributing to diversifi.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone <repository-url>
-cd stable-station
+cd diversifi
 ```
 
 ### 2. Install Dependencies
@@ -78,14 +78,14 @@ Or download it from the official website: https://www.postgresql.org/download/
 1. Create a database for the project:
 
 ```bash
-createdb diversify_dev
+createdb diversifi_dev
 ```
 
 2. Update your `.env` file with the correct database connection string:
 
 ```bash
 # Database
-POSTGRES_URL=postgres://your_username@localhost:5432/diversify_dev
+POSTGRES_URL=postgres://your_username@localhost:5432/diversifi_dev
 POSTGRES_URL_NON_POOLING=${POSTGRES_URL} # For non-pooling connections
 ```
 
@@ -96,18 +96,21 @@ Replace `your_username` with your actual system username.
 If you encounter database connection errors:
 
 1. Verify PostgreSQL is running:
+
    ```bash
    brew services list | grep postgresql
    ```
 
 2. Check that you can connect to the database:
+
    ```bash
-   psql -d diversify_dev -c "SELECT version();"
+   psql -d diversifi_dev -c "SELECT version();"
    ```
 
 3. Ensure the database exists:
+
    ```bash
-   psql -l | grep diversify_dev
+   psql -l | grep diversifi_dev
    ```
 
 4. Check your environment variables:
@@ -119,7 +122,7 @@ If you encounter database connection errors:
 
 ### Running the Applications
 
-#### Main Stable Station App
+#### Main diversifi App
 
 ```bash
 # Run development server
@@ -174,7 +177,7 @@ pnpm test:all
 ```
 /
 ├── apps/
-│   ├── web/               # Main Stable Station web app
+│   ├── web/               # Main diversifi web app
 │   │   ├── app/           # Next.js app directory
 │   │   ├── components/    # App-specific components
 │   │   ├── hooks/         # App-specific hooks
@@ -302,7 +305,7 @@ For new features:
 3. Ensure the database exists
 4. Try explicitly setting the POSTGRES_URL environment variable:
    ```bash
-   POSTGRES_URL=postgres://your_username@localhost:5432/diversify_dev pnpm build
+   POSTGRES_URL=postgres://your_username@localhost:5432/diversifi_dev pnpm build
    ```
 
 #### Wallet Connection Issues
@@ -323,10 +326,10 @@ Use console logging judiciously:
 
 ```typescript
 // Good - descriptive messages
-console.log('User connected wallet:', { address, chainId });
+console.log("User connected wallet:", { address, chainId });
 
 // Bad - unclear messages
-console.log('Error happened');
+console.log("Error happened");
 ```
 
 ## MiniPay Development
@@ -336,11 +339,13 @@ For DiversiFi development with MiniPay:
 ### Testing with MiniPay
 
 1. Start development server:
+
    ```bash
    pnpm dev:diversifi
    ```
 
 2. Use ngrok to expose local server:
+
    ```bash
    ngrok http 3001  # Use the same port as your dev server
    ```
@@ -350,12 +355,17 @@ For DiversiFi development with MiniPay:
 ### MiniPay Requirements
 
 1. Set proper headers:
+
    - `X-Frame-Options: SAMEORIGIN`
    - `Content-Security-Policy: frame-ancestors 'self' *.minipay.app *.celo.org *.opera.com;`
 
 2. Use appropriate meta tags for mobile:
+
    ```html
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <meta
+     name="viewport"
+     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+   />
    ```
 
 3. Implement wallet connection for MiniPay:

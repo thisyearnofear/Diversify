@@ -1,9 +1,9 @@
 /**
- * @deprecated Use useSwapBase from @stable-station/shared instead
+ * @deprecated Use useSwapBase from @diversifi/shared instead
  * This file is kept for backward compatibility during migration
  */
 
-export { useSwapBase as useSwapActions } from "@stable-station/shared";
+export { useSwapBase as useSwapActions } from "@diversifi/shared";
 
   tokenApproval: any,
   networkState: any,

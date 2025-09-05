@@ -1,6 +1,6 @@
 # API and Integration Documentation
 
-This document covers the APIs and external integrations used in Stable Station.
+This document covers the APIs and external integrations used in diversifi.
 
 ## Internal APIs
 
@@ -23,9 +23,9 @@ interface Action {
   description: string;
   chain: string;
   category: string;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  difficulty: "beginner" | "intermediate" | "advanced";
   reward: {
-    type: 'points' | 'tokens';
+    type: "points" | "tokens";
     amount: number;
   };
   requirements: string[];
@@ -66,7 +66,7 @@ The user API manages user profiles and progress.
 
 ### OpenAI Integration
 
-Stable Station uses OpenAI's GPT models for the AI chatbot functionality.
+diversifi uses OpenAI's GPT models for the AI chatbot functionality.
 
 #### Configuration
 
@@ -228,7 +228,7 @@ Facilitates CELO to cUSD swaps on Celo network.
 
 ### Drizzle ORM
 
-Stable Station uses Drizzle ORM for database management.
+diversifi uses Drizzle ORM for database management.
 
 #### Schema
 

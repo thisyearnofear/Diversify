@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { getRegionColors, type Region } from "@stable-station/shared";
+import { getRegionColors, type Region } from "@diversifi/shared";
 
 // Use shared region colors
-const REGION_COLORS = getRegionColors('standard');
+const REGION_COLORS = getRegionColors("standard");
 
 interface PerformanceChartProps {
   data: {

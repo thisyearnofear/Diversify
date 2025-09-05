@@ -1,13 +1,15 @@
 # Dual-App Structure
 
-Stable Station consists of two distinct but related applications that share a common codebase and infrastructure:
+diversifi consists of two distinct but related applications that share a common codebase and infrastructure:
 
-## 1. Main Application ("ai-chatbot" / Stable Station)
+## 1. Main Application ("ai-chatbot" / diversifi)
 
 ### Purpose
-The main Stable Station application is a comprehensive Web3 learning platform that uses chat-based interactions combined with real blockchain actions to educate users about decentralized technologies.
+
+The main diversifi application is a comprehensive Web3 learning platform that uses chat-based interactions combined with real blockchain actions to educate users about decentralized technologies.
 
 ### Key Characteristics
+
 - Full-featured Web3 learning environment
 - AI-powered chat interface with OpenAI and Agentkit integration
 - Multi-chain support (Base, Celo, Ethereum, Polygon, Optimism)
@@ -16,6 +18,7 @@ The main Stable Station application is a comprehensive Web3 learning platform th
 - Desktop-focused UI with mobile responsiveness
 
 ### Technology Stack
+
 - ConnectKit for wallet management
 - Full wagmi stack for blockchain interactions
 - Drizzle ORM for database management
@@ -25,9 +28,11 @@ The main Stable Station application is a comprehensive Web3 learning platform th
 ## 2. DiversiFi Application
 
 ### Purpose
+
 DiversiFi is a MiniPay-optimized application focused specifically on inflation protection through stablecoin diversification using Mento's regional stablecoins.
 
 ### Key Characteristics
+
 - MiniPay-optimized mobile experience
 - Focused use case around inflation protection
 - Regional token selection and portfolio visualization
@@ -36,6 +41,7 @@ DiversiFi is a MiniPay-optimized application focused specifically on inflation p
 - Direct Mento protocol integration
 
 ### Technology Stack
+
 - viem/wagmi optimized for MiniPay
 - Mento protocol integration
 - Chart.js for data visualization
@@ -46,12 +52,14 @@ DiversiFi is a MiniPay-optimized application focused specifically on inflation p
 Both applications share core infrastructure through the `packages/shared` directory:
 
 ### Shared Components
+
 - UI components that work across both environments
 - Common constants (regions, tokens, chains)
 - Utility functions for formatting, environment detection, etc.
 - React hooks for common functionality
 
 ### Environment-Aware Architecture
+
 The codebase uses environment detection to provide the appropriate experience:
 
 ```typescript
@@ -75,11 +83,13 @@ return <MainApp />;
 The applications can be deployed either together or separately:
 
 ### Unified Deployment (Recommended)
+
 - Single deployment with path-based routing
 - Shared authentication and user data
 - Easier maintenance and updates
 
 ### Separate Deployments (Current)
+
 - Completely independent deployments
 - Optimized for specific environments
 - Easier to scale independently
