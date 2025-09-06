@@ -4,8 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { useAccount } from "wagmi";
 import { useAuth } from "@/hooks/use-auth";
 import { AuthHelper } from "@/components/auth-helper";
-import { UserProfile } from "@/components/profile/user-profile";
-import { DiversifiVisualizer } from "@/components/profile/diversifi-visualizer";
 import { useTokenBalances, TOKEN_REGIONS } from "@/hooks/use-token-balances";
 type RegionKey = keyof typeof TOKEN_REGIONS;
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -175,7 +173,12 @@ export default function ProfilePage() {
           <Card className="w-full shadow-md">
             <CardContent className={isMobile ? "p-4 pb-6" : "py-6"}>
               <div className="flex flex-col items-center justify-center">
-                <UserProfile />
+                <div className="text-center">
+                  <h3 className="text-lg font-medium mb-2">Profile</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Profile components coming soon
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -236,16 +239,45 @@ export default function ProfilePage() {
                   </div>
 
                   {/* Keep showing the previous visualization during refresh */}
-                  <DiversifiVisualizer
-                    regionAllocations={regionAllocations}
-                    onRefresh={refreshDiversifiBalances}
-                  />
+                  <div className="w-full h-[350px] bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-lg border flex items-center justify-center">
+                    <div className="text-center">
+                      <h3 className="text-lg font-medium mb-2 text-indigo-600 dark:text-indigo-400">
+                        DiversiFi
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Portfolio visualization loading...
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Your regional allocations:{" "}
+                        {
+                          Object.keys(regionAllocations).filter(
+                            (r) => regionAllocations[r] > 0
+                          ).length
+                        }{" "}
+                        regions
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ) : (
-                <DiversifiVisualizer
-                  regionAllocations={regionAllocations}
-                  onRefresh={refreshDiversifiBalances}
-                />
+                <div className="w-full h-[350px] bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-lg border flex items-center justify-center">
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium mb-2 text-indigo-600 dark:text-indigo-400">
+                      DiversiFi
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Your portfolio visualization
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Active regions:{" "}
+                      {
+                        Object.keys(regionAllocations).filter(
+                          (r) => regionAllocations[r] > 0
+                        ).length
+                      }
+                    </p>
+                  </div>
+                </div>
               )}
             </CardContent>
           </Card>

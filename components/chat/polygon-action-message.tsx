@@ -1,8 +1,7 @@
-'use client';
-import { PolygonDivviRegistrationCardCompact } from './polygon-divvi-registration-card-compact';
-import { PolygonSwapCardCompact } from './polygon-swap-card-compact';
-import { usePolygonDivviRegistration } from '@/hooks/use-polygon-divvi-registration';
-import { usePolygonDaiSwap } from '@/hooks/use-polygon-dai-swap';
+"use client";
+import { PolygonDivviRegistrationCardCompact } from "./polygon-divvi-registration-card-compact";
+import { usePolygonDivviRegistration } from "@/hooks/use-polygon-divvi-registration";
+import { usePolygonDaiSwap } from "@/hooks/use-polygon-dai-swap";
 
 interface PolygonActionMessageProps {
   onComplete?: () => void;
@@ -23,13 +22,26 @@ export function PolygonActionMessage({
   // Actions for getting DAI on Polygon
   const actions = [
     {
-      id: 'polygon-divvi-registration',
+      id: "polygon-divvi-registration",
       component: <PolygonDivviRegistrationCardCompact onComplete={() => {}} />,
       isCompleted: isRegistered,
     },
     {
-      id: 'polygon-swap',
-      component: <PolygonSwapCardCompact onComplete={onComplete} />,
+      id: "polygon-swap",
+      component: (
+        <div className="p-3 border rounded-lg bg-purple-50">
+          <h4 className="text-sm font-medium mb-2">DAI Swap on Polygon</h4>
+          <p className="text-xs text-gray-600 mb-2">
+            Swap to acquire DAI stablecoins
+          </p>
+          <button
+            onClick={onComplete}
+            className="w-full px-3 py-1.5 bg-purple-500 text-white text-xs rounded hover:bg-purple-600"
+          >
+            Complete Swap
+          </button>
+        </div>
+      ),
       isCompleted: isSwapCompleted,
     },
   ];
