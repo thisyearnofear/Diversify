@@ -180,9 +180,9 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
             // Check allowance using direct ERC20 contract
             const allowance = await checkAllowance(address);
 
-            if (allowance?.gt(ethers.constants.Zero) && isMounted) {
+            if (allowance && allowance > 0n && isMounted) {
               setIsApproved(true);
-              setApprovalAmount(ethers.utils.formatEther(allowance));
+              setApprovalAmount(ethers.formatEther(allowance));
               setStatus('approved');
             } else if (isMounted) {
               setStatus('idle');
@@ -214,12 +214,12 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
   const checkAllowance = async (userAddress: string | undefined) => {
     if (!userAddress) {
       console.warn('Cannot check allowance: user address is undefined');
-      return ethers.constants.Zero;
+      return 0n;
     }
 
     try {
       // Create a read-only provider for Celo mainnet
-      const provider = new ethers.providers.JsonRpcProvider(
+      const provider = new ethers.JsonRpcProvider(
         'https://forno.celo.org',
       );
 
@@ -235,12 +235,12 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
 
       // Get the allowance
       const allowance = await cusdToken.allowance(userAddress, brokerAddress);
-      console.log('cUSD allowance:', ethers.utils.formatUnits(allowance, 18));
+      console.log('cUSD allowance:', ethers.formatUnits(allowance, 18));
 
       return allowance;
     } catch (error) {
       console.error('Error checking allowance:', error);
-      return ethers.constants.Zero;
+      return 0n;
     }
   };
 
@@ -313,11 +313,11 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
     }
 
     // Initialize provider and signer
-    const provider = new ethers.providers.Web3Provider(window.ethereum as any);
-    const signer = provider.getSigner();
+    const provider = new ethers.BrowserProvider(window.ethereum as any);
+    const signer = await provider.getSigner();
 
     // Convert amount to Wei
-    const amountInWei = ethers.utils.parseUnits(amount.toString(), 18);
+    const amountInWei = ethers.parseUnits(amount.toString(), 18);
 
     try {
       setStatus('approving');
@@ -393,11 +393,11 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
     }
 
     // Initialize provider and signer
-    const provider = new ethers.providers.Web3Provider(window.ethereum as any);
-    const signer = provider.getSigner();
+    const provider = new ethers.BrowserProvider(window.ethereum as any);
+    const signer = await provider.getSigner();
 
     // Convert amount to Wei
-    const amountInWei = ethers.utils.parseUnits(amount.toString(), 18);
+    const amountInWei = ethers.parseUnits(amount.toString(), 18);
 
     try {
       // Approval if needed
@@ -417,7 +417,7 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
         const brokerAddress = ADDRESSES.BROKER;
 
         // Create a read-only provider for getting the quote
-        const readProvider = new ethers.providers.JsonRpcProvider(
+        const readProvider = new ethers.JsonRpcProvider(
           'https://forno.celo.org',
         );
 
@@ -486,13 +486,11 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
           exchangeId,
           cUSDAddr,
           ccopAddr,
-          amountInWei.toString(),
+          amountInWei,
         );
 
         // Allow 1% slippage from quote
-        const expectedAmountOut = ethers.BigNumber.from(quoteAmountOut)
-          .mul(99)
-          .div(100);
+        const expectedAmountOut = (BigInt(quoteAmountOut) * 99n) / 100n;
 
         try {
           // First try with automatic gas estimation
@@ -501,8 +499,8 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
             exchangeId,
             cUSDAddr,
             ccopAddr,
-            amountInWei.toString(),
-            expectedAmountOut.toString(),
+            amountInWei,
+            expectedAmountOut,
           );
 
           setTxHash(swapTx.hash);
@@ -523,7 +521,7 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
 
           // If automatic gas estimation fails, try with manual gas limit
           const options = {
-            gasLimit: ethers.utils.hexlify(500000), // Manual gas limit of 500,000
+            gasLimit: 500000n, // Manual gas limit of 500,000
           };
 
           // Try again with manual gas limit
@@ -532,8 +530,8 @@ export function useCcopSwap(options?: UseCcopSwapOptions) {
             exchangeId,
             cUSDAddr,
             ccopAddr,
-            amountInWei.toString(),
-            expectedAmountOut.toString(),
+            amountInWei,
+            expectedAmountOut,
             options,
           );
 

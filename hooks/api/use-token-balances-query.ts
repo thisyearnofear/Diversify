@@ -103,7 +103,7 @@ const fetchTokenBalance = async (
   }
 
   // Create provider for the token's chain
-  const provider = new ethers.providers.JsonRpcProvider(
+  const provider = new ethers.JsonRpcProvider(
     RPC_URLS[tokenInfo.chain as keyof typeof RPC_URLS],
   );
 
@@ -138,7 +138,7 @@ const formatTokenBalance = (balance: string, token: string): TokenBalance => {
   let amount = '0.0';
   try {
     if (balance) {
-      amount = ethers.utils.formatUnits(balance, tokenInfo.decimals);
+      amount = ethers.formatUnits(balance, tokenInfo.decimals);
     }
   } catch (error) {
     console.error(`Error formatting balance for ${token}:`, error);
