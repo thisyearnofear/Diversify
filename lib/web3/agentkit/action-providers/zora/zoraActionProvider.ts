@@ -71,6 +71,7 @@ export class ZoraActionProvider extends ActionProvider {
       // Execute the mint transaction
       const hash = await walletProvider.sendTransaction({
         to: parameters.address as Hex,
+        from: walletProvider.getAddress() as `0x${string}`,
         data: encodeFunctionData({
           abi: parameters.abi,
           functionName: parameters.functionName,

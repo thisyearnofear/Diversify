@@ -5,12 +5,7 @@ import { cookies } from 'next/headers';
 import { createPublicClient, http } from 'viem';
 import { base, baseSepolia } from 'viem/chains';
 
-import {
-  createSiweMessage,
-  verifySiweMessage,
-  generateSiweNonce,
-  parseSiweMessage,
-} from 'viem/siwe';
+import { SiweMessage, generateNonce } from 'siwe';
 import {
   createSession,
   decrypt,
@@ -29,11 +24,11 @@ console.log('SIWE configuration:', { domain, uri, chainId: chain.id });
 export const generateSiweChallenge = async (address: `0x${string}`) => {
   try {
     console.log(`Generating SIWE challenge for address: ${address}`);
-    const nonce = generateSiweNonce();
+    const nonce = generateNonce();
     const cookieStore = await cookies();
     cookieStore.set('nonce', nonce);
 
-    const message = createSiweMessage({
+    const siweMessage = new SiweMessage({
       nonce,
       address,
       domain,
@@ -42,6 +37,8 @@ export const generateSiweChallenge = async (address: `0x${string}`) => {
       chainId: chain.id,
       statement: 'Sign in to diversifi',
     });
+    
+    const message = siweMessage.prepareMessage();
 
     console.log('Generated SIWE message:', {
       domain,
@@ -78,7 +75,7 @@ export const verifySiwe = async (message: string, signature: `0x${string}`) => {
     }
 
     // Parse the SIWE message to extract domain and other details
-    const parsedMessage = parseSiweMessage(message);
+    const parsedMessage = new SiweMessage(message);
 
     // Log the parsed message details for debugging
     console.log('Parsed SIWE message:', {
@@ -111,9 +108,10 @@ export const verifySiwe = async (message: string, signature: `0x${string}`) => {
 
     try {
       // Verify the signature
-      const verified = await verifySiweMessage(publicClient, {
-        message,
+      const verified = await parsedMessage.verify({
         signature,
+      }, {
+        provider: publicClient,
       });
 
       console.log('SIWE verification result:', verified);

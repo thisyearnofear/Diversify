@@ -59,7 +59,7 @@ export class SafeActionProvider extends ActionProvider {
 
       const protocolKit = await Safe.init({
         provider: baseSepolia.rpcUrls.default.http[0],
-        signer: walletProvider.getAddress(),
+        signer: walletProvider.getAddress() as `0x${string}`,
         predictedSafe,
         onchainAnalytics, // Optional
         // ...
@@ -73,7 +73,7 @@ export class SafeActionProvider extends ActionProvider {
       const client = await protocolKit.getSafeProvider().getExternalSigner();
 
       const tx = await client?.prepareTransactionRequest({
-        to: deploymentTransaction.to,
+        to: deploymentTransaction.to as `0x${string}`,
         value: BigInt(deploymentTransaction.value),
         data: deploymentTransaction.data as `0x${string}`,
         chain: baseSepolia,

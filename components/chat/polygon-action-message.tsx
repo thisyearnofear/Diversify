@@ -1,7 +1,7 @@
 "use client";
 import { PolygonDivviRegistrationCardCompact } from "./polygon-divvi-registration-card-compact";
 import { usePolygonDivviRegistration } from "@/hooks/use-polygon-divvi-registration";
-import { usePolygonDaiSwap } from "@/hooks/use-polygon-dai-swap";
+import { useSwapBase } from "@diversifi/shared";
 
 interface PolygonActionMessageProps {
   onComplete?: () => void;
@@ -12,7 +12,10 @@ export function PolygonActionMessage({
 }: PolygonActionMessageProps) {
   // Get registration and swap status
   const { isRegistered } = usePolygonDivviRegistration();
-  const { isCompleted: isSwapCompleted } = usePolygonDaiSwap();
+  const { isCompleted: isSwapCompleted } = useSwapBase({ 
+    defaultChain: 'polygon',
+    defaultProtocol: 'uniswap'
+  });
 
   // Calculate overall progress
   const totalSteps = 2;

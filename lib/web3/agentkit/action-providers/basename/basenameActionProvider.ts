@@ -94,6 +94,7 @@ Basename fails, you should prompt to try again with a more unique name.
 
       const hash = await wallet.sendTransaction({
         to: contractAddress,
+        from: address as `0x${string}`,
         data: encodeFunctionData({
           abi: REGISTRAR_ABI,
           functionName: 'register',
@@ -164,6 +165,7 @@ The agent must have a wallet connected that owns the Basename. The transfer will
       const nameHash = namehash(args.basename);
       const setAddrHash = await wallet.sendTransaction({
         to: l2ResolverAddress,
+        from: agentAddress as `0x${string}`,
         data: encodeFunctionData({
           abi: L2_RESOLVER_ABI,
           functionName: 'setAddr',
@@ -181,6 +183,7 @@ The agent must have a wallet connected that owns the Basename. The transfer will
       // Step 2: Set the name record after address record completes
       const setNameHash = await wallet.sendTransaction({
         to: l2ResolverAddress,
+        from: agentAddress as `0x${string}`,
         data: encodeFunctionData({
           abi: L2_RESOLVER_ABI,
           functionName: 'setName',
@@ -208,6 +211,7 @@ The agent must have a wallet connected that owns the Basename. The transfer will
 
       const reclaimHash = await wallet.sendTransaction({
         to: baseRegistrarAddress,
+        from: agentAddress as `0x${string}`,
         data: encodeFunctionData({
           abi: BASE_REGISTRAR_TRANSFER_ABI,
           functionName: 'reclaim',
@@ -228,6 +232,7 @@ The agent must have a wallet connected that owns the Basename. The transfer will
       // Step 4: Transfer the ENS name
       const transferHash = await wallet.sendTransaction({
         to: baseRegistrarAddress,
+        from: agentAddress as `0x${string}`,
         data: encodeFunctionData({
           abi: BASE_REGISTRAR_TRANSFER_ABI,
           functionName: 'safeTransferFrom',

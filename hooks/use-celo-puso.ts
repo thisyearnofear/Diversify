@@ -20,22 +20,10 @@ import {
   MENTO_BROKER_ADDRESS,
 } from '../utils/mento-utils';
 
-// Swap status types
-export type PusoSwapStatus =
-  | 'idle'
-  | 'checking'
-  | 'not-swapped'
-  | 'swapping'
-  | 'approving'
-  | 'approved'
-  | 'transaction-pending'
-  | 'transaction-submitted'
-  | 'transaction-confirming'
-  | 'transaction-success'
-  | 'completing'
-  | 'completed'
-  | 'switching-network'
-  | 'error';
+import type { SwapStatus, BaseSwapParams, BaseSwapOptions } from '@/constants/swap/types';
+
+// Celo PUSO specific swap status (extends base)
+export type PusoSwapStatus = SwapStatus;
 
 // Contract addresses from mento-utils
 const ADDRESSES = {
@@ -45,13 +33,9 @@ const ADDRESSES = {
   BROKER: MENTO_BROKER_ADDRESS,
 };
 
-export interface SwapParams {
-  amount: number;
-}
+export interface SwapParams extends BaseSwapParams {}
 
-export interface UsePusoSwapOptions {
-  onComplete?: () => void;
-}
+export interface UsePusoSwapOptions extends BaseSwapOptions {}
 
 export function usePusoSwap(options?: UsePusoSwapOptions) {
   const { address } = useAccount();
@@ -114,7 +98,7 @@ export function usePusoSwap(options?: UsePusoSwapOptions) {
 
         // Get allowance
         const allowance = await getAllowance(address);
-        setIsApproved(!allowance.isZero());
+        setIsApproved(allowance > 0n);
 
         setStatus('idle');
       } catch (err) {

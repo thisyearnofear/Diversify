@@ -38,30 +38,8 @@ export const ABIS = {
   ],
 };
 
-// Swap status types
-export type CkesSwapStatus =
-  | 'idle'
-  | 'checking'
-  | 'not-swapped'
-  | 'swapping'
-  | 'approving'
-  | 'approved'
-  | 'transaction-pending'
-  | 'transaction-submitted'
-  | 'transaction-confirming'
-  | 'transaction-success'
-  | 'completing'
-  | 'completed'
-  | 'switching-network'
-  | 'error';
-
-export interface SwapParams {
-  amount: number;
-}
-
-export interface UseCkesSwapOptions {
-  onComplete?: () => void;
-}
+// Re-export shared swap types for backward compatibility
+export type { SwapStatus as CkesSwapStatus, BaseSwapParams as SwapParams, BaseSwapOptions as UseCkesSwapOptions } from './swap/types';
 
 export interface SwapConfig {
   exchangeProvider: string;

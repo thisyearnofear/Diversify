@@ -19,22 +19,10 @@ import {
   DEFAULT_EXCHANGE_RATES,
 } from '../utils/mento-utils';
 
-// Swap status types
-export type CcopSwapStatus =
-  | 'idle'
-  | 'checking'
-  | 'not-swapped'
-  | 'swapping'
-  | 'approving'
-  | 'approved'
-  | 'transaction-pending'
-  | 'transaction-submitted'
-  | 'transaction-confirming'
-  | 'transaction-success'
-  | 'completing'
-  | 'completed'
-  | 'switching-network'
-  | 'error';
+import type { SwapStatus, BaseSwapParams, BaseSwapOptions } from '@/constants/swap/types';
+
+// Celo CCOP specific swap status (extends base)
+export type CcopSwapStatus = SwapStatus;
 
 // Contract addresses from mento-utils
 const ADDRESSES = {
@@ -44,13 +32,9 @@ const ADDRESSES = {
   BROKER: '0x777A8255cA72412f0d706dc03C9D1987306B4CaD',
 };
 
-export interface SwapParams {
-  amount: number;
-}
+export interface SwapParams extends BaseSwapParams {}
 
-export interface UseCcopSwapOptions {
-  onComplete?: () => void;
-}
+export interface UseCcopSwapOptions extends BaseSwapOptions {}
 
 export function useCcopSwap(options?: UseCcopSwapOptions) {
   const { address } = useAccount();

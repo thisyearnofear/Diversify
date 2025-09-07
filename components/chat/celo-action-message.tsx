@@ -5,7 +5,7 @@ import { DivviRegistrationCardCompact } from './divvi-registration-card-compact'
 import { useDivviRegistration } from '@/hooks/use-divvi-registration';
 import { CeloApproveCardCompact } from './celo-approve-card-compact';
 import { CeloConfirmCardCompact } from './celo-confirm-card-compact';
-import { useCeloSwap } from '@/hooks/use-celo-swap';
+import { useCcopSwap } from '@/hooks/use-celo-ccop';
 
 interface CeloActionMessageProps {
   onComplete?: () => void;
@@ -21,7 +21,7 @@ export function CeloActionMessage({ onComplete }: CeloActionMessageProps) {
     status: swapStatus,
     isApproved,
     approvalAmount,
-  } = useCeloSwap();
+  } = useCcopSwap();
 
   // Determine which steps are completed
   const isApprovalCompleted =

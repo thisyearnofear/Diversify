@@ -13,7 +13,7 @@ export function useTransaction() {
   const send = async (to: string, value: string) => {
     try {
       await sendTransaction({
-        to,
+        to: to as `0x${string}`,
         value: parseEther(value),
       });
       toast.success('Transaction sent!');

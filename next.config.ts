@@ -46,6 +46,7 @@ const nextConfig: NextConfig = {
       util: require.resolve('util/'),
       crypto: require.resolve('crypto-browserify'),
     };
+    
     return config;
   },
   skipTrailingSlashRedirect: true,

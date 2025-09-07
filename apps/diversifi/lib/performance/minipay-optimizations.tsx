@@ -3,23 +3,23 @@
  * Lightweight components and lazy loading for MiniPay environment
  */
 
-import { createLazyComponent, shouldLoadFeature } from "@diversifi/shared";
+import React, { lazy } from "react";
+import { shouldLoadFeature } from "@diversifi/shared";
+
+// Simple lazy component creator
+const createLazyComponent = (importFn: () => Promise<{ default: React.ComponentType<any> }>) => 
+  lazy(importFn);
 
 // Lightweight chart for MiniPay
-export const LazyMiniPayChart = createLazyComponent(
-  () =>
-    import("../components/SimplePieChart").then((m) => ({
-      default: m.default,
-    })),
-  () =>
-    import("@diversifi/shared").then((m) => ({
-      default: m.CurrencyPerformanceChart,
-    }))
+export const LazyMiniPayChart = createLazyComponent(() =>
+  import("../../components/SimplePieChart").then((m) => ({
+    default: m.default,
+  }))
 );
 
 // Essential swap interface for MiniPay
 export const LazyMiniPaySwap = createLazyComponent(() =>
-  import("../components/SwapInterface").then((m) => ({ default: m.default }))
+  import("../../components/SwapInterface").then((m) => ({ default: m.default }))
 );
 
 // Conditional feature loading for MiniPay
@@ -32,7 +32,7 @@ export function MiniPayFeatureWrapper({
   children: React.ReactNode;
   fallback?: React.ReactNode;
 }) {
-  if (!shouldLoadFeature(feature)) {
+  if (!shouldLoadFeature(feature as any)) {
     return <>{fallback}</>;
   }
 
@@ -41,19 +41,19 @@ export function MiniPayFeatureWrapper({
 
 // Performance-optimized tab navigation
 export const LazyTabNavigation = createLazyComponent(() =>
-  import("../components/TabNavigation").then((m) => ({ default: m.default }))
+  import("../../components/TabNavigation").then((m) => ({ default: m.default }))
 );
 
 // Lightweight regional components
 export const LazyRegionalIconography = createLazyComponent(() =>
-  import("../components/RegionalIconography").then((m) => ({
+  import("../../components/RegionalIconography").then((m) => ({
     default: m.default,
   }))
 );
 
 // Essential wallet provider for MiniPay
 export const LazyWalletProvider = createLazyComponent(() =>
-  import("../components/WalletProvider").then((m) => ({
+  import("../../components/WalletProvider").then((m) => ({
     default: m.WalletProvider,
   }))
 );

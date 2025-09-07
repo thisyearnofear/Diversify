@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import type { CkesSwapStatus } from '../constants/celo-tokens';
+import type { SwapStatus } from '@/constants/swap/types';
 
 export function useSwapState() {
-  const [status, setStatus] = useState<CkesSwapStatus>('idle');
+  const [status, setStatus] = useState<SwapStatus>('idle');
   const [error, setError] = useState<string | null>(null);
   const [txHash, setTxHash] = useState<string | null>(null);
   const [isCompleted, setIsCompleted] = useState(false);

@@ -3,7 +3,7 @@
 // Import the polygon action message component
 import { PolygonActionMessage } from './polygon-action-message';
 import { usePolygonDivviRegistration } from '@/hooks/use-polygon-divvi-registration';
-import { usePolygonDaiSwap } from '@/hooks/use-polygon-dai-swap';
+import { useSwapBase } from '@diversifi/shared';
 import { useEffect } from 'react';
 
 interface PolygonActionHandlerProps {
@@ -16,7 +16,10 @@ export function PolygonActionHandler({
   onComplete,
 }: PolygonActionHandlerProps) {
   const { isRegistered } = usePolygonDivviRegistration();
-  const { isCompleted: isSwapCompleted } = usePolygonDaiSwap();
+  const { isCompleted: isSwapCompleted } = useSwapBase({ 
+    defaultChain: 'polygon',
+    defaultProtocol: 'uniswap'
+  });
 
   // If both registration and swap are completed, trigger onComplete
   useEffect(() => {

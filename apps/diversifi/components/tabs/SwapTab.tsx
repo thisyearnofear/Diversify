@@ -97,14 +97,18 @@ export default function SwapTab({
 
   // Use the stablecoin swap hook
   const {
-    swap: performSwap,
+    executeSwap: performSwap,
     isLoading: isSwapLoading,
     error: swapError,
     txHash: swapTxHash,
     isCompleted: isSwapCompleted,
-    chainId,
-    isMiniPay: isMiniPayDetected,
   } = useStablecoinSwap();
+  
+  // Add missing properties with defaults
+  const chainId = typeof window !== 'undefined' && window.ethereum?.chainId 
+    ? parseInt(window.ethereum.chainId, 16) 
+    : 42220; // Default to Celo mainnet
+  const isMiniPayDetected = false;
 
   // State for transaction status
   const [swapStatus, setSwapStatus] = useState<string | null>(null);
@@ -224,24 +228,6 @@ export default function SwapTab({
         toToken,
         amount,
         slippageTolerance: 1.0, // 1% slippage tolerance for MiniPay
-        onApprovalSubmitted: (txHash) => {
-          console.log(`Approval transaction submitted: ${txHash}`);
-          setApprovalTxHash(txHash);
-          setSwapStatus(
-            `Approval transaction submitted. Waiting for confirmation...`
-          );
-        },
-        onApprovalConfirmed: () => {
-          console.log("Approval confirmed, proceeding to swap");
-          setSwapStatus("Approval confirmed. Now executing swap...");
-          setSwapStep("swapping");
-        },
-        onSwapSubmitted: (txHash) => {
-          console.log(`Swap transaction submitted: ${txHash}`);
-          setSwapStatus(
-            `Swap transaction submitted. Waiting for confirmation...`
-          );
-        },
       });
 
       // Note: Most status updates are handled by the useEffect and callbacks

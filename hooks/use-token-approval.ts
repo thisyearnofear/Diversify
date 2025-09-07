@@ -33,11 +33,11 @@ export function useTokenApproval(swapState: any, networkState: any) {
     }
 
     // Initialize provider and signer
-    const provider = new ethers.providers.Web3Provider(window.ethereum as any);
-    const signer = provider.getSigner();
+    const provider = new ethers.BrowserProvider(window.ethereum as any);
+    const signer = await provider.getSigner();
 
     // Convert amount to Wei
-    const amountInWei = ethers.utils.parseUnits(amount.toString(), 18);
+    const amountInWei = ethers.parseUnits(amount.toString(), 18);
 
     try {
       setStatus('approving');
@@ -84,12 +84,12 @@ export function useTokenApproval(swapState: any, networkState: any) {
   const checkAllowance = async (userAddress: string | undefined) => {
     if (!userAddress) {
       console.warn('Cannot check allowance: user address is undefined');
-      return ethers.constants.Zero;
+      return 0n;
     }
 
     try {
       // Create a read-only provider for Celo mainnet
-      const provider = new ethers.providers.JsonRpcProvider(
+      const provider = new ethers.JsonRpcProvider(
         'https://forno.celo.org',
       );
 
@@ -109,7 +109,7 @@ export function useTokenApproval(swapState: any, networkState: any) {
       return allowance;
     } catch (error) {
       console.error('Error checking allowance:', error);
-      return ethers.constants.Zero;
+      return 0n;
     }
   };
 

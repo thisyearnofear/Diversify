@@ -58,7 +58,7 @@ export function useExchangeRates() {
       }
 
       // Create a read-only provider for Celo mainnet
-      const provider = new ethers.providers.JsonRpcProvider(
+      const provider = new ethers.JsonRpcProvider(
         'https://forno.celo.org',
       );
 
@@ -120,7 +120,7 @@ export function useExchangeRates() {
       );
 
       // Get the quote for 1 cUSD to cKES
-      const oneEther = ethers.utils.parseUnits('1.0', 18);
+      const oneEther = ethers.parseUnits('1.0', 18);
       const quoteAmountOut = await brokerContract.getAmountOut(
         exchangeProvider,
         exchangeId,
@@ -130,7 +130,7 @@ export function useExchangeRates() {
       );
 
       // Convert the quote to a human-readable number
-      const rate = Number.parseFloat(ethers.utils.formatUnits(quoteAmountOut, 18));
+      const rate = Number.parseFloat(ethers.formatUnits(quoteAmountOut, 18));
       console.log('Fetched exchange rate from Mento SDK:', rate);
 
       // Update the exchange rate state and cache it

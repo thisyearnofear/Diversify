@@ -85,6 +85,7 @@ Important notes:
     try {
       const hash = await walletProvider.sendTransaction({
         to: args.contractAddress as Hex,
+        from: walletProvider.getAddress() as `0x${string}`,
         data: encodeFunctionData({
           abi,
           functionName: 'transfer',

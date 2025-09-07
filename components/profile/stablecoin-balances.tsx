@@ -13,10 +13,8 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { UserProfile } from './user-profile';
 import { useRegion, type Region } from '@/contexts/region-context';
 import { Badge } from '@/components/ui/badge';
-import { DiversifiVisualizer } from './diversifi-visualizer';
 import { getAvailableTokensByRegion } from '@/lib/tokens/token-data';
 import { useTokenBalances, TOKEN_REGIONS } from '@/hooks/use-token-balances';
 import {
@@ -181,7 +179,9 @@ function MobileStablecoinBalances({
         </TabsTrigger>
       </TabsList>
       <TabsContent value="profile">
-        <UserProfile />
+        <div className="text-center text-muted-foreground">
+          Profile information has been consolidated into the main interface.
+        </div>
       </TabsContent>
       <TabsContent value="diversifi">
         <div className="pt-2">
@@ -200,13 +200,9 @@ function MobileStablecoinBalances({
             </div>
             <div className="flex flex-col gap-2">
               {/* Visualizer and metrics */}
-              <DiversifiVisualizer
-                regionAllocations={(() => {
-                  const { totals } = calculateRegionTotals(balances);
-                  return totals;
-                })()}
-                onRefresh={refreshBalances}
-              />
+              <div className="text-center text-muted-foreground p-8">
+                Geographic visualization has been consolidated into the main diversification interface.
+              </div>
             </div>
             <div className="flex gap-2">
               <Button
@@ -339,10 +335,9 @@ function DesktopStablecoinBalances({
                   </span>
                 </div>
               ) : (
-                <DiversifiVisualizer
-                  regionAllocations={calculateRegionTotals(balances).totals}
-                  onRefresh={refreshBalances}
-                />
+                <div className="text-center text-muted-foreground p-8">
+                  Geographic visualization has been consolidated into the main diversification interface.
+                </div>
               )}
               <Button
                 className="mt-4 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800/30"

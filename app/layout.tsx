@@ -15,7 +15,6 @@ import { ReactQueryProvider } from "@/lib/react-query";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
-import "@coinbase/onchainkit/styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

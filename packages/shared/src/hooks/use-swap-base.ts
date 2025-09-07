@@ -137,7 +137,7 @@ export function useSwapBase(options: UseSwapOptions = {}): SwapState {
     if (autoDetectChain && typeof window !== 'undefined' && window.ethereum) {
       const detectChain = async () => {
         try {
-          const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+          const chainId = await window.ethereum!.request({ method: 'eth_chainId' });
           const chainIdNum = Number.parseInt(chainId as string, 16);
           
           // Map chain IDs to our supported chains

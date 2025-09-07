@@ -15,7 +15,7 @@ import {
   Info,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useCeloSwap } from '@/hooks/use-celo-swap';
+import { useCcopSwap } from '@/hooks/use-celo-ccop';
 import { useTokenPrice } from '@/hooks/use-token-price';
 
 interface CeloSwapCardCompactProps {
@@ -34,7 +34,7 @@ export function CeloSwapCardCompact(_props: CeloSwapCardCompactProps) {
     isCorrectNetwork,
     switchToCelo,
     isSwitchingChain,
-  } = useCeloSwap();
+  } = useCcopSwap();
 
   // State for the swap form
   const [amount, setAmount] = useState('');

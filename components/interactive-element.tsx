@@ -1,11 +1,8 @@
 import { Button } from "./ui/button";
-import { FundButton } from "@coinbase/onchainkit/fund";
 import { ConnectButton } from "./connect-button-new";
 import { useCallback } from "react";
 import type { UserAction, ActionData } from "@/lib/utils/message-helpers";
 import { useChatContext } from "@/contexts/chat-context";
-import { NFTCard } from "@coinbase/onchainkit/nft";
-import { NFTMedia, NFTNetwork, NFTTitle } from "@coinbase/onchainkit/nft/view";
 import { ActionMessage } from "./chat/action-message";
 import { WalletSetupCompact } from "./chat/wallet-setup-compact";
 import { FarcasterActionCardCompact } from "./chat/farcaster-action-card-compact";
@@ -153,7 +150,20 @@ export function InteractiveElement({
     <div className="flex flex-col gap-4">
       {connectWalletAction && <ConnectButton />}
 
-      {fundWalletAction && <FundButton />}
+      {fundWalletAction && (
+        <div className="p-4 border rounded-lg bg-blue-50">
+          <h3 className="text-sm font-medium mb-2">Fund Wallet</h3>
+          <p className="text-xs text-gray-600 mb-2">
+            Add funds to your wallet to get started
+          </p>
+          <button
+            onClick={() => console.log("successfully funded wallet")}
+            className="w-full px-3 py-1.5 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+          >
+            Fund Wallet
+          </button>
+        </div>
+      )}
 
       {buyStarterKitAction && (
         <div className="p-4 border rounded-lg bg-green-50">
@@ -211,22 +221,6 @@ export function InteractiveElement({
         >
           {helpAction.label || "Help, I don't understand"}
         </Button>
-      )}
-
-      {showNftActions.length > 0 && (
-        <div className="grid gap-4 md:grid-cols-4">
-          {showNftActions.map((action, index) => (
-            <NFTCard
-              key={`${action.args?.[0].contractAddress}-${action.args?.[0].tokenId}-${index}`}
-              contractAddress={action.args?.[0]?.contractAddress}
-              tokenId={action.args?.[0]?.tokenId}
-            >
-              <NFTMedia />
-              <NFTTitle />
-              <NFTNetwork />
-            </NFTCard>
-          ))}
-        </div>
       )}
 
       {filteredActionCards.length > 0 && (

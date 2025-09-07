@@ -19,7 +19,7 @@ import {
 import { toast } from 'sonner';
 import { useCkesSwap } from '@/hooks/use-celo-ckes';
 import { useTokenPrice } from '@/hooks/use-token-price';
-import { formatUnits } from 'ethers';
+import { ethers } from 'ethers';
 
 // Card for entering cUSD amount and approving cUSD for swap to cKES.
 interface CkesApproveCardCompactProps {
@@ -79,7 +79,7 @@ export function CeloCkesApproveCardCompact({
   // Check if user has enough cUSD
   const hasEnoughCUSD =
     cUSDBalance && amount
-      ? Number.parseFloat(formatUnits(cUSDBalance.value, cUSDBalance.decimals)) >=
+      ? Number.parseFloat(ethers.formatUnits(cUSDBalance.value, cUSDBalance.decimals)) >=
         Number.parseFloat(amount)
       : true;
 
@@ -95,7 +95,7 @@ export function CeloCkesApproveCardCompact({
     if (cUSDBalance) {
       // Leave a small amount for gas
       const maxAmount = Number.parseFloat(
-        formatUnits(cUSDBalance.value, cUSDBalance.decimals),
+        ethers.formatUnits(cUSDBalance.value, cUSDBalance.decimals),
       );
       const amountWithBuffer = Math.max(0, maxAmount - 0.01).toFixed(4);
       setAmount(amountWithBuffer);
@@ -243,7 +243,7 @@ export function CeloCkesApproveCardCompact({
                         <span className="text-xs flex items-center text-gray-500">
                           <Wallet className="size-3 mr-1" />
                           Balance:{' '}
-                          {formatUnits(cUSDBalance.value, cUSDBalance.decimals)}{' '}
+                          {ethers.formatUnits(cUSDBalance.value, cUSDBalance.decimals)}{' '}
                           cUSD
                         </span>
                       )}
@@ -261,7 +261,7 @@ export function CeloCkesApproveCardCompact({
                           Insufficient cUSD balance. You need {amount} cUSD but
                           only have{' '}
                           {cUSDBalance
-                            ? formatUnits(
+                            ? ethers.formatUnits(
                                 cUSDBalance.value,
                                 cUSDBalance.decimals,
                               )

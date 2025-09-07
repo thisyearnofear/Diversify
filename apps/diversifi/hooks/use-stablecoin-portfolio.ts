@@ -137,7 +137,7 @@ export function useStablecoinPortfolio(address?: string) {
           ([region, value]) => ({
             region,
             value,
-            color: REGION_COLORS[region] || '#CBD5E0',
+            color: REGION_COLORS[region as keyof typeof REGION_COLORS] || '#CBD5E0',
           })
         );
 

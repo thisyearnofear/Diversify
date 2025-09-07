@@ -13,7 +13,7 @@ import {
   Info,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useCeloSwap } from '@/hooks/use-celo-swap';
+import { useCcopSwap } from '@/hooks/use-celo-ccop';
 import { useTokenPrice } from '@/hooks/use-token-price';
 
 interface CeloConfirmCardCompactProps {
@@ -37,7 +37,7 @@ export function CeloConfirmCardCompact({
     isCorrectNetwork,
     switchToCelo,
     isSwitchingChain,
-  } = useCeloSwap();
+  } = useCcopSwap();
 
   // Get real-time exchange rates from CoinGecko
   const { prices } = useTokenPrice(['CELO', 'USDC']);

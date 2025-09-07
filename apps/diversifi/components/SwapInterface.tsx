@@ -92,13 +92,19 @@ const SwapInterface = forwardRef<
   } = useInflationData();
 
   // Use the stablecoin swap hook
+  const swapHook = useStablecoinSwap();
   const {
-    swap: performSwap,
+    executeSwap,
     error: swapError,
     txHash: swapTxHash,
     isCompleted,
-    chainId,
-  } = useStablecoinSwap();
+  } = swapHook;
+  
+  const performSwap = executeSwap;
+  // Dynamic chainId detection
+  const chainId = typeof window !== 'undefined' && window.ethereum?.chainId 
+    ? parseInt(window.ethereum.chainId, 16) 
+    : 42220; // Default to Celo mainnet
 
   // Use the expected amount out hook
   const { expectedOutput } = useExpectedAmountOut({

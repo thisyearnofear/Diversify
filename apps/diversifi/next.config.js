@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@diversifi/mento-utils"],
+  transpilePackages: [
+    "@diversifi/mento-utils",
+    "viem",
+    "wagmi",
+    "@wagmi/core",
+    "@noble/hashes",
+  ],
   // We'll add shared packages here as we extract them
 
   // Configure base path if needed
@@ -49,6 +55,31 @@ const nextConfig = {
         ],
       },
     ];
+  },
+
+  // Fix for viem/noble-hashes compatibility
+  webpack: (config, { isServer }) => {
+    // Polyfills for Node.js modules in the browser
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+
+    // Handle noble-hashes ESM compatibility
+    config.module.rules.push({
+      test: /\.m?js$/,
+      include: /node_modules\/@noble/,
+      type: 'javascript/auto',
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+
+    return config;
   },
 };
 
