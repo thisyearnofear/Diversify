@@ -10,7 +10,6 @@ if (!BRIAN_API_KEY) {
 
 // Import the Brian SDK - in a real implementation, you would install the package
 // For this example, we'll use the fetch API directly
-// import { BrianSDK } from "@brian-ai/sdk";
 
 export async function POST(request: Request) {
   try {

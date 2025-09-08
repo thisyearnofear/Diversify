@@ -2,11 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: [
-    "@diversifi/mento-utils",
-    "viem",
-    "wagmi",
-    "@wagmi/core",
-    "@noble/hashes",
+    "@diversifi/mento-utils"
   ],
   // We'll add shared packages here as we extract them
 
@@ -66,18 +62,12 @@ const nextConfig = {
         fs: false,
         net: false,
         tls: false,
+        buffer: require.resolve('buffer/'),
+        stream: require.resolve('stream-browserify'),
+        util: require.resolve('util/'),
+        crypto: require.resolve('crypto-browserify'),
       };
     }
-
-    // Handle noble-hashes ESM compatibility
-    config.module.rules.push({
-      test: /\.m?js$/,
-      include: /node_modules\/@noble/,
-      type: 'javascript/auto',
-      resolve: {
-        fullySpecified: false,
-      },
-    });
 
     return config;
   },

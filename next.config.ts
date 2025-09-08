@@ -47,6 +47,26 @@ const nextConfig: NextConfig = {
       crypto: require.resolve('crypto-browserify'),
     };
     
+    // Handle noble-hashes ESM compatibility
+    config.module.rules.push({
+      test: /\.m?js$/,
+      include: /node_modules\/@noble/,
+      type: 'javascript/auto',
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+
+    // Handle scure ESM compatibility
+    config.module.rules.push({
+      test: /\.m?js$/,
+      include: /node_modules\/@scure/,
+      type: 'javascript/auto',
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+    
     return config;
   },
   skipTrailingSlashRedirect: true,
