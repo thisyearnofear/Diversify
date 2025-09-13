@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm install --no-frozen-lockfile && pnpm add -D -w stream-browserify buffer crypto-browserify util @noble/hashes && pnpm build"
+  command = "pnpm install --no-frozen-lockfile && pnpm add -D -w stream-browserify buffer crypto-browserify util @noble/hashes && node scripts/fixes/fix-noble-packages.js && pnpm build"
   publish = ".next"
 
 [build.environment]
