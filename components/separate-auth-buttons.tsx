@@ -169,7 +169,7 @@ export function SeparateAuthButtons() {
         <div>
           <h3 className="text-sm font-medium">Wallet</h3>
         </div>
-        <ConnectKitButton.Custom>
+        <SimpleWalletButton>
           {({ show, ensName }) => (
             <Button
               onClick={show}
@@ -183,7 +183,7 @@ export function SeparateAuthButtons() {
                   : 'Wallet')}
             </Button>
           )}
-        </ConnectKitButton.Custom>
+        </SimpleWalletButton>
       </div>
     );
   }
