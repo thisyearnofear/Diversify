@@ -11,6 +11,7 @@
     "dev:diversifi": "pnpm --filter diversifi dev",
     "dev:packages": "pnpm --filter \"./packages/**\" dev",
     "build": "tsx scripts/deploy/build.ts",
+    "build:simple": "next build",
     "build:all": "pnpm -r build",
     "build:packages": "pnpm --filter \"./packages/**\" build",
     "build:apps": "pnpm --filter \"./apps/**\" build",
@@ -65,7 +66,6 @@
     "@radix-ui/react-toast": "^1.2.15",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@radix-ui/react-visually-hidden": "^1.2.3",
-    "@safe-global/protocol-kit": "^6.1.1",
     "@tanstack/react-query": "^5.87.1",
     "@types/d3": "^7.4.3",
     "@uiw/react-heat-map": "^2.3.3",
@@ -74,14 +74,12 @@
     "@vercel/blob": "^1.1.1",
     "@vercel/postgres": "^0.10.0",
     "@wagmi/core": "^2.20.3",
-    "@zoralabs/protocol-sdk": "^0.13.11",
-    "ai": "5.0.35",
+    "ai": "^3.4.9",
     "bcrypt-ts": "^7.1.0",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "codemirror": "^6.0.2",
-    "connectkit": "1.9.1",
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "diff-match-patch": "^1.0.5",
@@ -117,7 +115,6 @@
     "react-dom": "^19.1.1",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^3.0.5",
-    "react-spring": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "server-only": "^0.0.1",
     "siwe": "^3.0.0",
@@ -130,7 +127,7 @@
     "uuid": "^12.0.0",
     "viem": "2.37.4",
     "wagmi": "2.16.9",
-    "zod": "^4.1.5"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.3",
@@ -151,7 +148,7 @@
     "eslint-plugin-tailwindcss": "^3.18.2",
     "postcss": "^8.5.6",
     "stream-browserify": "^3.0.0",
-    "tailwindcss": "^4.1.13",
+    "tailwindcss": "^3.4.0",
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
@@ -170,7 +167,10 @@
     "overrides": {
       "viem": "2.37.4",
       "@noble/hashes": "1.7.1",
-      "@noble/curves": "1.9.7"
+      "@noble/curves": "1.9.7",
+      "tailwindcss": "^3.4.0",
+      "ai": "^3.4.9",
+      "zod": "^3.24.1"
     }
   }
 }
