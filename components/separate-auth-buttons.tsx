@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ConnectKitButton } from 'connectkit';
+import { SimpleWalletButton } from './simple-wallet-button';
 import { useAccount, useSignMessage } from 'wagmi';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -207,13 +207,13 @@ export function SeparateAuthButtons() {
               <span className="text-xs font-medium">Connected</span>
             </div>
           ) : (
-            <ConnectKitButton.Custom>
+            <SimpleWalletButton>
               {({ show }) => (
                 <Button onClick={show} size="sm" className="py-1 h-8">
                   Connect
                 </Button>
               )}
-            </ConnectKitButton.Custom>
+            </SimpleWalletButton>
           )}
         </div>
       </div>

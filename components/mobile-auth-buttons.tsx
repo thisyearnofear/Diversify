@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ConnectKitButton } from 'connectkit';
+import { SimpleWalletButton } from './simple-wallet-button';
 import { useAccount, useSignMessage } from 'wagmi';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -178,7 +178,7 @@ export function MobileAuthButtons() {
       );
     } else {
       return (
-        <ConnectKitButton.Custom>
+        <SimpleWalletButton>
           {({ show, ensName }) => (
             <Button
               onClick={show}
@@ -193,7 +193,7 @@ export function MobileAuthButtons() {
               {ensName || (address ? `${address.slice(0, 4)}...` : 'Wallet')}
             </Button>
           )}
-        </ConnectKitButton.Custom>
+        </SimpleWalletButton>
       );
     }
   }
@@ -227,7 +227,7 @@ export function MobileAuthButtons() {
 
   // If not connected, show connect button
   return (
-    <ConnectKitButton.Custom>
+    <SimpleWalletButton>
       {({ show }) => (
         <Button
           onClick={show}
@@ -241,6 +241,6 @@ export function MobileAuthButtons() {
           Connect
         </Button>
       )}
-    </ConnectKitButton.Custom>
+    </SimpleWalletButton>
   );
 }

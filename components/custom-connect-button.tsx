@@ -1,6 +1,6 @@
 'use client';
 
-import { ConnectKitButton } from 'connectkit';
+import { SimpleWalletButton } from './simple-wallet-button';
 import { useCallback, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -74,6 +74,6 @@ export function CustomConnectButton() {
   );
 
   return (
-    <ConnectKitButton.Custom>{customButtonRender}</ConnectKitButton.Custom>
+    <SimpleWalletButton>{customButtonRender}</SimpleWalletButton>
   );
 }

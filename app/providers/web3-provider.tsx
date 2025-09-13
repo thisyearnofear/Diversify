@@ -3,7 +3,6 @@
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { base, mainnet, celo, optimism, polygon } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ConnectKitProvider } from "connectkit";
 import { WalletSessionManager } from "@/components/wallet/wallet-session-manager";
 
 // Validate required environment variables
@@ -30,29 +29,8 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ConnectKitProvider
-          // Custom ConnectKit options
-          customTheme={{
-            // Match your app's color scheme
-            "--ck-connectbutton-color": "var(--foreground)",
-            "--ck-connectbutton-background": "var(--background)",
-            "--ck-connectbutton-hover-color": "var(--foreground)",
-            "--ck-connectbutton-hover-background": "var(--muted)",
-          }}
-          options={{
-            // Show wallet image in the modal
-            walletConnectCTA: "both",
-            // Hide the ConnectKit branding
-            hideQuestionMarkCTA: true,
-            // Customize the disclaimer
-            disclaimer:
-              "By connecting your wallet, you agree to the Terms of Service and Privacy Policy",
-          }}
-          mode="dark"
-        >
-          <WalletSessionManager />
-          {children}
-        </ConnectKitProvider>
+        <WalletSessionManager />
+        {children}
       </QueryClientProvider>
     </WagmiProvider>
   );
